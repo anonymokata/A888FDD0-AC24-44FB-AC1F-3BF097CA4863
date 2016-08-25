@@ -10,6 +10,8 @@ int determineValueOfRomanNumeral(char numeral){
     numeralValue = 10;
   } else if(numeral == 'L'){
     numeralValue = 50;
+  } else if(numeral == 'C'){
+    numeralValue = 100;
   }
   
   return numeralValue;
