@@ -25,10 +25,20 @@ int determineValueOfRomanNumeral(char numeral){
 
 int convertRomanNumeralsToInt(char romanNumerals[]){
   int value = 0;
+  int numeralLen = strlen(romanNumerals);
 
-  int i;
-  for(i = 0 ; romanNumerals[i] != '\0'; i++){
-    value += determineValueOfRomanNumeral(romanNumerals[i]);
+  int prevVal = 0;
+  int i = numeralLen - 1;
+  for(i ; i >= 0; i--){
+    int currVal = determineValueOfRomanNumeral(romanNumerals[i]);
+    
+    if(currVal < prevVal){
+      value -= currVal;
+    } else {
+      value += currVal;
+    }
+   
+    prevVal = currVal;
   }
 
   return value;

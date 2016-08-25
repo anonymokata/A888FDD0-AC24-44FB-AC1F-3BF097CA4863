@@ -78,6 +78,24 @@ START_TEST(convertToInt_DC_to_600){
 }
 END_TEST
 
+START_TEST(convertToInt_IV_to_4){
+  char one[3] = "IV";
+  one[2] = '\0';
+
+  int result = convertRomanNumeralsToInt(one);
+  ck_assert_int_eq(4, result);
+}
+END_TEST
+
+START_TEST(convertToInt_Largest_to_3999){
+  char one[10] = "MMMCMXCIX";
+  one[9] = '\0';
+
+  int result = convertRomanNumeralsToInt(one);
+  ck_assert_int_eq(3999, result);
+}
+END_TEST
+
 Suite* convertToIntSuite(void){
   Suite *su;
   TCase *tcase;
@@ -98,6 +116,8 @@ Suite* convertToIntSuite(void){
   TCase *multiCase = tcase_create("Convert Multiple Characters");
   tcase_add_test(multiCase, convertToInt_II_to_2);
   tcase_add_test(multiCase, convertToInt_DC_to_600);
+  tcase_add_test(multiCase, convertToInt_IV_to_4);
+  tcase_add_test(multiCase, convertToInt_Largest_to_3999);
 
   suite_add_tcase(su, multiCase);
 
