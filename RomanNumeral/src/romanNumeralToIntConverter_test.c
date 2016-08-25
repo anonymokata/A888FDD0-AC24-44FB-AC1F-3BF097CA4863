@@ -69,6 +69,15 @@ START_TEST(convertToInt_II_to_2){
 }
 END_TEST
 
+START_TEST(convertToInt_DC_to_600){
+  char one[3] = "DC";
+  one[2] = '\0';
+
+  int result = convertRomanNumeralsToInt(one);
+  ck_assert_int_eq(600, result);
+}
+END_TEST
+
 Suite* convertToIntSuite(void){
   Suite *su;
   TCase *tcase;
@@ -88,6 +97,7 @@ Suite* convertToIntSuite(void){
 
   TCase *multiCase = tcase_create("Convert Multiple Characters");
   tcase_add_test(multiCase, convertToInt_II_to_2);
+  tcase_add_test(multiCase, convertToInt_DC_to_600);
 
   suite_add_tcase(su, multiCase);
 
