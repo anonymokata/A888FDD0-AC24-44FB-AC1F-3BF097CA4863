@@ -12,6 +12,8 @@ int determineValueOfRomanNumeral(char numeral){
     return 50;
   } else if(numeral == 'C'){
     return 100;
+  } else if(numeral == 'D'){
+    return 500;
   }
   
   return 1;
