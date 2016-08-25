@@ -31,6 +31,10 @@ int runAllTests(void){
 
   s = helloSuite();
   sr = srunner_create(s);
+ 
+  Suite *convertToInt;
+  convertToInt = convertToIntSuite();
+  srunner_add_suite(sr, convertToInt);
 
   srunner_run_all(sr, CK_NORMAL);
   numberFailed = srunner_ntests_failed(sr);
