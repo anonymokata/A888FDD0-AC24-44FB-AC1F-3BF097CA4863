@@ -3,18 +3,18 @@
 #include "../include/romanNumeralToIntConverter.h"
 
 int determineValueOfRomanNumeral(char numeral){
-  int numeralValue = 1;
+
   if(numeral == 'V'){
-    numeralValue = 5;
+    return 5;
   } else if(numeral == 'X'){
-    numeralValue = 10;
+    return 10;
   } else if(numeral == 'L'){
-    numeralValue = 50;
+    return 50;
   } else if(numeral == 'C'){
-    numeralValue = 100;
+    return 100;
   }
   
-  return numeralValue;
+  return 1;
 }
 
 int convertRomanNumeralsToInt(char *romanNumerals){
