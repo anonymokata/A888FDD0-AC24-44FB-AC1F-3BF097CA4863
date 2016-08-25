@@ -1,0 +1,2 @@
+
+int convertRomanNumeralsToInt(char *romanNumerals);

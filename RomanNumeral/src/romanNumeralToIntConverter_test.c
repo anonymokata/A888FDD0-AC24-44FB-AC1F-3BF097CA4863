@@ -5,7 +5,10 @@
 #include "../include/romanNumeralToIntConverter_test.h"
 
 START_TEST(convertToInt_I_to_1){
-  myPrintHelloMake();
+  char one[1] = "I";
+
+  int result = convertRomanNumeralsToInt(one);
+  ck_assert_int_eq(1, result);
 }
 END_TEST
 
