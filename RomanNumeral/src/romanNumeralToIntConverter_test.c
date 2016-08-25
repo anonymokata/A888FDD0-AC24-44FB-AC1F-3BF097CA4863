@@ -52,12 +52,20 @@ START_TEST(convertToInt_D_to_500){
 }
 END_TEST
 
+START_TEST(convertToInt_M_to_1000){
+  char one[1] = "M";
+
+  int result = convertRomanNumeralsToInt(one);
+  ck_assert_int_eq(1000, result);
+}
+END_TEST
+
 Suite* convertToIntSuite(void){
   Suite *su;
   TCase *tcase;
 
   su = suite_create("ConvertToInt");
-  tcase = tcase_create("convert");
+  tcase = tcase_create("Convert Single Character");
 
   tcase_add_test(tcase, convertToInt_I_to_1);
   tcase_add_test(tcase, convertToInt_V_to_5);
@@ -65,6 +73,7 @@ Suite* convertToIntSuite(void){
   tcase_add_test(tcase, convertToInt_L_to_50);
   tcase_add_test(tcase, convertToInt_C_to_100);
   tcase_add_test(tcase, convertToInt_D_to_500);
+  tcase_add_test(tcase, convertToInt_M_to_1000);
 
   suite_add_tcase(su, tcase);
 
