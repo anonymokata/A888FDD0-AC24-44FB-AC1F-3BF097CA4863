@@ -28,6 +28,14 @@ START_TEST(convertToInt_X_to_10){
 }
 END_TEST
 
+START_TEST(convertToInt_L_to_50){
+  char one[1] = "L";
+
+  int result = convertRomanNumeralsToInt(one);
+  ck_assert_int_eq(50, result);
+}
+END_TEST
+
 Suite* convertToIntSuite(void){
   Suite *su;
   TCase *tcase;
@@ -38,6 +46,7 @@ Suite* convertToIntSuite(void){
   tcase_add_test(tcase, convertToInt_I_to_1);
   tcase_add_test(tcase, convertToInt_V_to_5);
   tcase_add_test(tcase, convertToInt_X_to_10);
+  tcase_add_test(tcase, convertToInt_L_to_50);
 
   suite_add_tcase(su, tcase);
 
