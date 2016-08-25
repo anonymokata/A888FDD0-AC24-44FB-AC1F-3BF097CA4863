@@ -1,9 +1,11 @@
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 #include "../include/romanNumeralToIntConverter.h"
 
 int determineValueOfRomanNumeral(char numeral){
-
+  
   if(numeral == 'V'){
     return 5;
   } else if(numeral == 'X'){
@@ -21,8 +23,13 @@ int determineValueOfRomanNumeral(char numeral){
   return 1;
 }
 
-int convertRomanNumeralsToInt(char *romanNumerals){
-  int value = determineValueOfRomanNumeral(romanNumerals[0]);
+int convertRomanNumeralsToInt(char romanNumerals[]){
+  int value = 0;
+
+  int i;
+  for(i = 0 ; romanNumerals[i] != '\0'; i++){
+    value += determineValueOfRomanNumeral(romanNumerals[i]);
+  }
 
   return value;
 }

@@ -60,6 +60,15 @@ START_TEST(convertToInt_M_to_1000){
 }
 END_TEST
 
+START_TEST(convertToInt_II_to_2){
+  char one[3] = "II";
+  one[2] = '\0';
+
+  int result = convertRomanNumeralsToInt(one);
+  ck_assert_int_eq(2, result);
+}
+END_TEST
+
 Suite* convertToIntSuite(void){
   Suite *su;
   TCase *tcase;
@@ -76,6 +85,11 @@ Suite* convertToIntSuite(void){
   tcase_add_test(tcase, convertToInt_M_to_1000);
 
   suite_add_tcase(su, tcase);
+
+  TCase *multiCase = tcase_create("Convert Multiple Characters");
+  tcase_add_test(multiCase, convertToInt_II_to_2);
+
+  suite_add_tcase(su, multiCase);
 
   return su;
 }
