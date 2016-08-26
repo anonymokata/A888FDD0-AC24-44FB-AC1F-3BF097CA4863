@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <check.h>
 
-#include "../include/hellomake.h"
 #include "../include/romanNumeralToIntConverter_test.h"
 
 START_TEST(convertToInt_I_to_1){
@@ -100,7 +99,7 @@ Suite* convertToIntSuite(void){
   Suite *su;
   TCase *tcase;
 
-  su = suite_create("ConvertToInt");
+  su = suite_create("Convert Roman Numeral To Int");
   tcase = tcase_create("Convert Single Character");
 
   tcase_add_test(tcase, convertToInt_I_to_1);
