@@ -44,6 +44,11 @@ int convertIntGreaterThanEqToFive(char *romanNumerals, int value, int *lenPtr){
   if(value >= 50){
     romanNumerals[len] = 'L';
     subFromVal = 50;
+  } else if (value >= 40){
+    romanNumerals[len] = 'X';
+    romanNumerals[len + 1] = 'L';
+    subFromVal = 40;
+    len++;
   } else if(value >= 10){
     romanNumerals[len] = 'X';
     subFromVal = 10;
