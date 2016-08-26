@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <string.h>
 
 int convertIntGreaterThanEqToNinety(char *romanNumerals, int value, int *lenPtr){
   int len = *lenPtr;
@@ -36,7 +35,7 @@ int convertIntGreaterThanEqToNinety(char *romanNumerals, int value, int *lenPtr)
   return subFromVal;
 }
 
-int convertIntGreaterThanEqToFive(char *romanNumerals, int value, int *lenPtr){
+int convertIntGreaterThanEqToFour(char *romanNumerals, int value, int *lenPtr){
   int len = *lenPtr;
   int subFromVal = 0;
 
@@ -78,7 +77,7 @@ void convertIntToRomanNumerals(char *romanNumerals, int value){
     if(value >= 90){
       value -= convertIntGreaterThanEqToNinety(romanNumerals, value, &len);
     } else if(value >= 4){
-      value -= convertIntGreaterThanEqToFive(romanNumerals, value, &len);
+      value -= convertIntGreaterThanEqToFour(romanNumerals, value, &len);
     } else {
       romanNumerals[len] = 'I';
       value -= 1;
