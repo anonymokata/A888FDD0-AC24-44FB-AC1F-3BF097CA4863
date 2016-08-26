@@ -51,6 +51,14 @@ START_TEST(convertToChar_5_to_V){
 }
 END_TEST
 
+START_TEST(convertToChar_1_to_I){
+  char romanNumerals[25];
+
+  convertIntToRomanNumerals(romanNumerals, 1);
+  ck_assert_str_eq("I", romanNumerals);
+}
+END_TEST
+
 Suite* convertToRomanNumeralSuite(void){
   Suite *su;
   TCase *tcase;
@@ -64,6 +72,7 @@ Suite* convertToRomanNumeralSuite(void){
   tcase_add_test(tcase, convertToChar_50_to_L);
   tcase_add_test(tcase, convertToChar_10_to_X);
   tcase_add_test(tcase, convertToChar_5_to_V);
+  tcase_add_test(tcase, convertToChar_1_to_I);
   
   suite_add_tcase(su, tcase);
 
