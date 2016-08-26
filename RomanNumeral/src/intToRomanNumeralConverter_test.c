@@ -83,6 +83,14 @@ START_TEST(convertToChar_900_to_CM){
 }
 END_TEST
 
+START_TEST(convertToChar_400_to_CD){
+  char romanNumerals[25];
+
+  convertIntToRomanNumerals(romanNumerals, 400);
+  ck_assert_str_eq("CD", romanNumerals);
+}
+END_TEST
+
 Suite* convertToRomanNumeralSuite(void){
   Suite *su;
   TCase *tcase;
@@ -105,6 +113,7 @@ Suite* convertToRomanNumeralSuite(void){
   tcase_add_test(multi, convertToChar_1500_to_MD);
   tcase_add_test(multi, convertToChar_1667_to_MDCLXVII);
   tcase_add_test(multi, convertToChar_900_to_CM);
+  tcase_add_test(multi, convertToChar_400_to_CD);
 
   suite_add_tcase(su, multi);
 

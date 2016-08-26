@@ -16,6 +16,11 @@ int convertIntGreaterThanEqToOneHund(char *romanNumerals, int value, int *lenPtr
   } else if(value >= 500){
     romanNumerals[len] = 'D';
     subFromVal = 500;
+  } else if(value >= 400){
+    romanNumerals[len] = 'C';
+    romanNumerals[len + 1] = 'D';
+    subFromVal = 400;
+    len++;
   } else if(value >= 100){
     romanNumerals[len] = 'C';
     subFromVal = 100;
@@ -23,6 +28,7 @@ int convertIntGreaterThanEqToOneHund(char *romanNumerals, int value, int *lenPtr
 
   len++;
   *lenPtr = len;
+ 
   return subFromVal;
 }
 
