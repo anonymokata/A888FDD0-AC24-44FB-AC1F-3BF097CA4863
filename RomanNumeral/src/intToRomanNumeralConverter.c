@@ -12,6 +12,8 @@ void convertIntToRomanNumerals(char *romanNumerals, int value){
     romanNumerals[len] = 'C';
   } else if(value == 50){
     romanNumerals[len] = 'L';
+  } else if(value == 10){
+    romanNumerals[len] = 'X';
   }
 
   len++;
