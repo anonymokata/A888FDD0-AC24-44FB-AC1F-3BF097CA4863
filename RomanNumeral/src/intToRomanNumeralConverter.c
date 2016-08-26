@@ -31,7 +31,6 @@ int convertIntGreaterThanEqToNinety(char *romanNumerals, int value, int *lenPtr)
     len++;
   }
 
-  //len++;
   *lenPtr = len + 1;
  
   return subFromVal;
@@ -60,9 +59,13 @@ int convertIntGreaterThanEqToFive(char *romanNumerals, int value, int *lenPtr){
   } else if(value >= 5){
     romanNumerals[len] = 'V';
     subFromVal = 5;
+  } else{
+    romanNumerals[len] = 'I';
+    romanNumerals[len + 1] = 'V';
+    subFromVal = 4;
+    len++;
   }
 
-  //len++;
   *lenPtr = len + 1;
 
   return subFromVal;
@@ -74,7 +77,7 @@ void convertIntToRomanNumerals(char *romanNumerals, int value){
   while(value > 0){
     if(value >= 90){
       value -= convertIntGreaterThanEqToNinety(romanNumerals, value, &len);
-    } else if(value >= 5){
+    } else if(value >= 4){
       value -= convertIntGreaterThanEqToFive(romanNumerals, value, &len);
     } else {
       romanNumerals[len] = 'I';

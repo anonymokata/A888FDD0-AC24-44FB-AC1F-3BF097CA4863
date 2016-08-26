@@ -115,6 +115,14 @@ START_TEST(convertToChar_9_to_IX){
 }
 END_TEST
 
+START_TEST(convertToChar_4_to_IV){
+  char romanNumerals[25];
+
+  convertIntToRomanNumerals(romanNumerals, 4);
+  ck_assert_str_eq("IV", romanNumerals);
+}
+END_TEST
+
 Suite* convertToRomanNumeralSuite(void){
   Suite *su;
   TCase *tcase;
@@ -141,6 +149,7 @@ Suite* convertToRomanNumeralSuite(void){
   tcase_add_test(multi, convertToChar_90_to_XC);
   tcase_add_test(multi, convertToChar_40_to_XL);
   tcase_add_test(multi, convertToChar_9_to_IX);
+  tcase_add_test(multi, convertToChar_4_to_IV);
 
   suite_add_tcase(su, multi);
 
