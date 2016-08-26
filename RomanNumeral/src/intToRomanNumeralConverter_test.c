@@ -59,6 +59,14 @@ START_TEST(convertToChar_1_to_I){
 }
 END_TEST
 
+START_TEST(convertToChar_1500_to_MD){
+  char romanNumerals[25];
+
+  convertIntToRomanNumerals(romanNumerals, 1500);
+  ck_assert_str_eq("MD", romanNumerals);
+}
+END_TEST
+
 Suite* convertToRomanNumeralSuite(void){
   Suite *su;
   TCase *tcase;
@@ -75,6 +83,12 @@ Suite* convertToRomanNumeralSuite(void){
   tcase_add_test(tcase, convertToChar_1_to_I);
   
   suite_add_tcase(su, tcase);
+
+  TCase *multi;
+  multi = tcase_create("Convert Int To Multiple Roman Numerals");
+  tcase_add_test(multi, convertToChar_1500_to_MD);
+
+  suite_add_tcase(su, multi);
 
   return su;
 }
