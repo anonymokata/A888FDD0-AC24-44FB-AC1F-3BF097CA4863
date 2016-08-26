@@ -67,6 +67,14 @@ START_TEST(convertToChar_1500_to_MD){
 }
 END_TEST
 
+START_TEST(convertToChar_1667_to_MDCLXVII){
+  char romanNumerals[25];
+
+  convertIntToRomanNumerals(romanNumerals, 1667);
+  ck_assert_str_eq("MDCLXVII", romanNumerals);
+}
+END_TEST
+
 Suite* convertToRomanNumeralSuite(void){
   Suite *su;
   TCase *tcase;
@@ -87,6 +95,7 @@ Suite* convertToRomanNumeralSuite(void){
   TCase *multi;
   multi = tcase_create("Convert Int To Multiple Roman Numerals");
   tcase_add_test(multi, convertToChar_1500_to_MD);
+  tcase_add_test(multi, convertToChar_1667_to_MDCLXVII);
 
   suite_add_tcase(su, multi);
 
