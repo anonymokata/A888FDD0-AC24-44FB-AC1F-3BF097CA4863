@@ -8,6 +8,8 @@ void convertIntToRomanNumerals(char *romanNumerals, int value){
     romanNumerals[len] = 'M';
   } else if(value == 500){
     romanNumerals[len] = 'D';
+  } else if(value == 100){
+    romanNumerals[len] = 'C';
   }
 
   len++;

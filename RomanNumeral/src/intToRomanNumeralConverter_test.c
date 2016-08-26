@@ -19,6 +19,14 @@ START_TEST(convertToChar_500_to_D){
 }
 END_TEST
 
+START_TEST(convertToChar_100_to_C){
+  char romanNumerals[25];
+
+  convertIntToRomanNumerals(romanNumerals, 100);
+  ck_assert_str_eq("C", romanNumerals);
+}
+END_TEST
+
 Suite* convertToRomanNumeralSuite(void){
   Suite *su;
   TCase *tcase;
@@ -28,6 +36,7 @@ Suite* convertToRomanNumeralSuite(void){
   tcase = tcase_create("Convert Single Character");
   tcase_add_test(tcase, convertToChar_1000_to_M);
   tcase_add_test(tcase, convertToChar_500_to_D);
+  tcase_add_test(tcase, convertToChar_100_to_C);
   
   suite_add_tcase(su, tcase);
 
