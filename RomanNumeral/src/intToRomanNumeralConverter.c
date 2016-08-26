@@ -8,6 +8,11 @@ int convertIntGreaterThanEqToOneHund(char *romanNumerals, int value, int *lenPtr
   if(value >= 1000){
     romanNumerals[len] = 'M';
     subFromVal = 1000;
+  } else if(value >= 900){
+    romanNumerals[len] = 'C';
+    romanNumerals[len + 1] = 'M';
+    subFromVal = 900;
+    len++;
   } else if(value >= 500){
     romanNumerals[len] = 'D';
     subFromVal = 500;
@@ -17,6 +22,7 @@ int convertIntGreaterThanEqToOneHund(char *romanNumerals, int value, int *lenPtr
   }
 
   len++;
+  *lenPtr = len;
   return subFromVal;
 }
 
@@ -36,6 +42,8 @@ int convertIntGreaterThanEqToFive(char *romanNumerals, int value, int *lenPtr){
   }
 
   len++;
+  *lenPtr = len;
+
   return subFromVal;
 }
 
@@ -50,9 +58,9 @@ void convertIntToRomanNumerals(char *romanNumerals, int value){
     } else {
       romanNumerals[len] = 'I';
       value -= 1;
+      len++;
     }
     
-    len++;
   }
 
   romanNumerals[len] = '\0';
