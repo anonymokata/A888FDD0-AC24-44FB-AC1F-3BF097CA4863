@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int convertIntGreaterThanEqToOneHund(char *romanNumerals, int value, int *lenPtr){
+int convertIntGreaterThanEqToNinety(char *romanNumerals, int value, int *lenPtr){
   int len = *lenPtr;
   int subFromVal = 0;
 
@@ -24,10 +24,15 @@ int convertIntGreaterThanEqToOneHund(char *romanNumerals, int value, int *lenPtr
   } else if(value >= 100){
     romanNumerals[len] = 'C';
     subFromVal = 100;
+  } else{
+    romanNumerals[len] = 'X';
+    romanNumerals[len + 1] = 'C';
+    subFromVal = 90;
+    len++;
   }
 
-  len++;
-  *lenPtr = len;
+  //len++;
+  *lenPtr = len + 1;
  
   return subFromVal;
 }
@@ -47,8 +52,8 @@ int convertIntGreaterThanEqToFive(char *romanNumerals, int value, int *lenPtr){
     subFromVal = 5;
   }
 
-  len++;
-  *lenPtr = len;
+  //len++;
+  *lenPtr = len + 1;
 
   return subFromVal;
 }
@@ -57,8 +62,8 @@ void convertIntToRomanNumerals(char *romanNumerals, int value){
   int len = 0;
 
   while(value > 0){
-    if(value >= 100){
-      value -= convertIntGreaterThanEqToOneHund(romanNumerals, value, &len);
+    if(value >= 90){
+      value -= convertIntGreaterThanEqToNinety(romanNumerals, value, &len);
     } else if(value >= 5){
       value -= convertIntGreaterThanEqToFive(romanNumerals, value, &len);
     } else {

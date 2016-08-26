@@ -91,6 +91,22 @@ START_TEST(convertToChar_400_to_CD){
 }
 END_TEST
 
+START_TEST(convertToChar_90_to_XC){
+  char romanNumerals[25];
+
+  convertIntToRomanNumerals(romanNumerals, 90);
+  ck_assert_str_eq("XC", romanNumerals);
+}
+END_TEST
+
+START_TEST(convertToChar_40_to_XL){
+  char romanNumerals[25];
+
+  convertIntToRomanNumerals(romanNumerals, 40);
+  ck_assert_str_eq("XL", romanNumerals);
+}
+END_TEST
+
 Suite* convertToRomanNumeralSuite(void){
   Suite *su;
   TCase *tcase;
@@ -114,6 +130,8 @@ Suite* convertToRomanNumeralSuite(void){
   tcase_add_test(multi, convertToChar_1667_to_MDCLXVII);
   tcase_add_test(multi, convertToChar_900_to_CM);
   tcase_add_test(multi, convertToChar_400_to_CD);
+  tcase_add_test(multi, convertToChar_90_to_XC);
+  tcase_add_test(multi, convertToChar_40_to_XL);
 
   suite_add_tcase(su, multi);
 
