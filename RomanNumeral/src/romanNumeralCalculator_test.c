@@ -28,6 +28,14 @@ START_TEST(calculateRomanNumerals_V_mul_V){
 }
 END_TEST
 
+START_TEST(calculateRomanNumerals_V_div_II){
+  char romanNumerals[25];
+
+  calculate(romanNumerals, "div", "V", "II");
+  ck_assert_str_eq("II", romanNumerals);
+}
+END_TEST
+
 Suite* romanNumeralCalculatorSuite(void){
   Suite *su;
   TCase *tcase;
@@ -38,7 +46,8 @@ Suite* romanNumeralCalculatorSuite(void){
   tcase_add_test(tcase, calculateRomanNumerals_II_plus_II);
   tcase_add_test(tcase, calculateRomanNumerals_V_sub_I);
   tcase_add_test(tcase, calculateRomanNumerals_V_mul_V);
-  
+  tcase_add_test(tcase, calculateRomanNumerals_V_div_II);
+
   suite_add_tcase(su, tcase);
 
   return su;

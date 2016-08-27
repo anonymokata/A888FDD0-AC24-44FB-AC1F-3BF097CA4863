@@ -12,12 +12,14 @@ void calculate(char *result, char *op, char *first, char *sec){
   secNum = convertRomanNumeralsToInt(sec);
 
   int resultNum;
-  if(strcmp("add", op) == 0){
-    resultNum = firstNum + secNum;
-  } else if(strcmp("sub", op) == 0){
+  if(strcmp("sub", op) == 0){
     resultNum = firstNum - secNum;
   } else if(strcmp("mul", op) == 0){
     resultNum = firstNum * secNum;
+  } else if(strcmp("div", op) == 0){
+    resultNum = firstNum / secNum;
+  } else {
+    resultNum = firstNum + secNum;
   }
 
   convertIntToRomanNumerals(result, resultNum);
