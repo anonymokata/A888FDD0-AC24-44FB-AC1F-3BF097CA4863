@@ -36,6 +36,14 @@ START_TEST(calculateRomanNumerals_V_div_II){
 }
 END_TEST
 
+START_TEST(calculateRomanNumerals_less_than_one){
+  char romanNumerals[25];
+
+  calculate(romanNumerals, "sub", "II", "II");
+  ck_assert_str_eq("Invalid number less than one", romanNumerals);
+}
+END_TEST
+
 Suite* romanNumeralCalculatorSuite(void){
   Suite *su;
   TCase *tcase;
@@ -47,6 +55,7 @@ Suite* romanNumeralCalculatorSuite(void){
   tcase_add_test(tcase, calculateRomanNumerals_V_sub_I);
   tcase_add_test(tcase, calculateRomanNumerals_V_mul_V);
   tcase_add_test(tcase, calculateRomanNumerals_V_div_II);
+  tcase_add_test(tcase, calculateRomanNumerals_less_than_one);
 
   suite_add_tcase(su, tcase);
 

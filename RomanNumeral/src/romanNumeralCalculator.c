@@ -22,5 +22,11 @@ void calculate(char *result, char *op, char *first, char *sec){
     resultNum = firstNum + secNum;
   }
 
+  if(resultNum < 1){
+    strcpy(result, "Invalid number less than one");
+    printf("Should Be Zero: %s\n", result);
+    return;
+  }
+
   convertIntToRomanNumerals(result, resultNum);
 }
