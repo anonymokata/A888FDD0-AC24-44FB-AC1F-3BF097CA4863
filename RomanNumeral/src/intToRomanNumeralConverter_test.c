@@ -107,6 +107,30 @@ START_TEST(convertToChar_40_to_XL){
 }
 END_TEST
 
+START_TEST(convertToChar_9_to_IX){
+  char romanNumerals[25];
+
+  convertIntToRomanNumerals(romanNumerals, 9);
+  ck_assert_str_eq("IX", romanNumerals);
+}
+END_TEST
+
+START_TEST(convertToChar_4_to_IV){
+  char romanNumerals[25];
+
+  convertIntToRomanNumerals(romanNumerals, 4);
+  ck_assert_str_eq("IV", romanNumerals);
+}
+END_TEST
+
+START_TEST(convertToChar_3999_to_MMMCMXCIX){
+  char romanNumerals[25];
+
+  convertIntToRomanNumerals(romanNumerals, 3999);
+  ck_assert_str_eq("MMMCMXCIX", romanNumerals);
+}
+END_TEST
+
 Suite* convertToRomanNumeralSuite(void){
   Suite *su;
   TCase *tcase;
@@ -132,6 +156,9 @@ Suite* convertToRomanNumeralSuite(void){
   tcase_add_test(multi, convertToChar_400_to_CD);
   tcase_add_test(multi, convertToChar_90_to_XC);
   tcase_add_test(multi, convertToChar_40_to_XL);
+  tcase_add_test(multi, convertToChar_9_to_IX);
+  tcase_add_test(multi, convertToChar_4_to_IV);
+  tcase_add_test(multi, convertToChar_3999_to_MMMCMXCIX);
 
   suite_add_tcase(su, multi);
 

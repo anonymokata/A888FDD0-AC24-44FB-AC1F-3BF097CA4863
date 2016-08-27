@@ -1,82 +1,28 @@
 #include <stdlib.h>
 #include <string.h>
 
-int convertIntGreaterThanEqToNinety(char *romanNumerals, int value, int *lenPtr){
-  int len = *lenPtr;
-  int subFromVal = 0;
-
-  if(value >= 1000){
-    romanNumerals[len] = 'M';
-    subFromVal = 1000;
-  } else if(value >= 900){
-    romanNumerals[len] = 'C';
-    romanNumerals[len + 1] = 'M';
-    subFromVal = 900;
-    len++;
-  } else if(value >= 500){
-    romanNumerals[len] = 'D';
-    subFromVal = 500;
-  } else if(value >= 400){
-    romanNumerals[len] = 'C';
-    romanNumerals[len + 1] = 'D';
-    subFromVal = 400;
-    len++;
-  } else if(value >= 100){
-    romanNumerals[len] = 'C';
-    subFromVal = 100;
-  } else{
-    romanNumerals[len] = 'X';
-    romanNumerals[len + 1] = 'C';
-    subFromVal = 90;
-    len++;
-  }
-
-  //len++;
-  *lenPtr = len + 1;
- 
-  return subFromVal;
-}
-
-int convertIntGreaterThanEqToFive(char *romanNumerals, int value, int *lenPtr){
-  int len = *lenPtr;
-  int subFromVal = 0;
-
-  if(value >= 50){
-    romanNumerals[len] = 'L';
-    subFromVal = 50;
-  } else if (value >= 40){
-    romanNumerals[len] = 'X';
-    romanNumerals[len + 1] = 'L';
-    subFromVal = 40;
-    len++;
-  } else if(value >= 10){
-    romanNumerals[len] = 'X';
-    subFromVal = 10;
-  } else if(value >= 5){
-    romanNumerals[len] = 'V';
-    subFromVal = 5;
-  }
-
-  //len++;
-  *lenPtr = len + 1;
-
-  return subFromVal;
-}
-
 void convertIntToRomanNumerals(char *romanNumerals, int value){
+  char *numerals[13] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+  int numVals[13] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
   int len = 0;
 
   while(value > 0){
-    if(value >= 90){
-      value -= convertIntGreaterThanEqToNinety(romanNumerals, value, &len);
-    } else if(value >= 5){
-      value -= convertIntGreaterThanEqToFive(romanNumerals, value, &len);
-    } else {
-      romanNumerals[len] = 'I';
-      value -= 1;
-      len++;
+    int index = 0;
+    for(index; index < sizeof(numVals); index++){
+      if(value >= numVals[index]){
+	if(strlen(numerals[index]) > 1) {
+	  romanNumerals[len] = numerals[index][0];
+	  romanNumerals[len + 1] = numerals[index][1];
+	  len += 2;
+	} else {
+	  romanNumerals[len] = numerals[index][0];
+	  len++;
+	}
+
+	value = value - numVals[index];
+	break;
+      }
     }
-    
   }
 
   romanNumerals[len] = '\0';
