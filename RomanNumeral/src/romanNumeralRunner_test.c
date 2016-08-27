@@ -3,12 +3,6 @@
 
 #include "../include/romanNumeralRunner_test.h"
 
-START_TEST(testHelloMake){
-  myPrintHelloMake();
-  ck_assert_int_eq(5,5);
-}
-END_TEST
-
 int runAllTests(void){
   int numberFailed;
 
