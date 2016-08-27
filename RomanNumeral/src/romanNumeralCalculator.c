@@ -23,8 +23,12 @@ void calculate(char *result, char *op, char *first, char *sec){
   }
 
   if(resultNum < 1){
-    strcpy(result, "Invalid number less than one");
-    printf("Should Be Zero: %s\n", result);
+    strcpy(result, "Invalid number less than 1");
+    return;
+  } 
+
+  if(resultNum > 3999){
+    strcpy(result, "Invalid number greater than 3999");
     return;
   }
 
