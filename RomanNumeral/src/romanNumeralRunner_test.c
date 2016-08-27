@@ -6,11 +6,11 @@
 int runAllTests(void){
   int numberFailed;
 
-  Suite *s;
+  Suite *convertToNumeral;
   SRunner *sr;
 
-  s = convertToRomanNumeralSuite();
-  sr = srunner_create(s);
+  convertToNumeral = convertToRomanNumeralSuite();
+  sr = srunner_create(convertToNumeral);
  
   Suite *convertToInt;
   convertToInt = convertToIntSuite();
