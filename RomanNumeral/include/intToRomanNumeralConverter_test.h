@@ -1,2 +1,2 @@
 
-Suite *convertToRomanNumeralSuite(void);
+Suite* convertToRomanNumeralSuite(void);
