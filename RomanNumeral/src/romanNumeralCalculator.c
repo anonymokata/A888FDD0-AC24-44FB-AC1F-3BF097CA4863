@@ -16,7 +16,9 @@ void calculate(char *result, char *op, char *first, char *sec){
     resultNum = firstNum + secNum;
   } else if(strcmp("sub", op) == 0){
     resultNum = firstNum - secNum;
-  } 
+  } else if(strcmp("mul", op) == 0){
+    resultNum = firstNum * secNum;
+  }
 
   convertIntToRomanNumerals(result, resultNum);
 }
