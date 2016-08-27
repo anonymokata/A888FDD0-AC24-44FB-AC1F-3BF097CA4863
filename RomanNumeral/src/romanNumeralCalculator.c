@@ -11,5 +11,12 @@ void calculate(char *result, char *op, char *first, char *sec){
   firstNum = convertRomanNumeralsToInt(first);
   secNum = convertRomanNumeralsToInt(sec);
 
-  convertIntToRomanNumerals(result, firstNum + secNum);
+  int resultNum;
+  if(strcmp("add", op) == 0){
+    resultNum = firstNum + secNum;
+  } else if(strcmp("sub", op) == 0){
+    resultNum = firstNum - secNum;
+  } 
+
+  convertIntToRomanNumerals(result, resultNum);
 }
