@@ -10,7 +10,7 @@ default: RomanNumerals
 
 RomanNumerals: $(SRC)*.c
 	gcc $(SRC)*.c -o romanNumerals -I $(INCL) $(LIB_PATH) $(LIB)
-	./romanNumerals
+	./romanNumerals tests
 
 clean: 
 	rm -f romanNumerals
