@@ -57,8 +57,8 @@ int hasMoreThanSingleOccurrence(char *numeral){
 }
 
 int hasMoreThanThreeOccurrences(char *numeral){
-  char charsToCnt[] = {'M', 'C', 'X', 'I'};
-  int cntOfChars[] = {0, 0, 0, 0};
+  char charsToCnt[] = {'C', 'X', 'I'};
+  int cntOfChars[] = {0, 0, 0};
 
   return hasMoreThanDesiredOccurrence(numeral, charsToCnt, cntOfChars, 4, 3);
 }
@@ -75,7 +75,7 @@ int validateInputs(char *invalidMsg, char *firstNumeral, char *secondNumeral){
   }
 
   if(!hasMoreThanThreeOccurrences(firstNumeral) || !hasMoreThanThreeOccurrences(secondNumeral)){
-    strcpy(invalidMsg, "Roman Numerals can only contain three occurrences of the characters: M,C,X,I");
+    strcpy(invalidMsg, "Roman Numerals can only contain three occurrences of the characters: C,X,I");
     return 0;
   }
 

@@ -140,17 +140,6 @@ START_TEST(valid_occur_both_numerals){
 }
 END_TEST
 
-START_TEST(valid_occur_M){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "MMMM", "III");
-  
-  ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: M,C,X,I", invalidMsg);
-}
-END_TEST
-
 START_TEST(valid_occur_C){
   char invalidMsg[100];
   int isValid;
@@ -158,7 +147,7 @@ START_TEST(valid_occur_C){
   isValid = validateInputs(invalidMsg, "MMMCCCC", "III");
   
   ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: M,C,X,I", invalidMsg);
+  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: C,X,I", invalidMsg);
 }
 END_TEST
 
@@ -169,7 +158,7 @@ START_TEST(valid_occur_X){
   isValid = validateInputs(invalidMsg, "MMMXXXX", "III");
   
   ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: M,C,X,I", invalidMsg);
+  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: C,X,I", invalidMsg);
 }
 END_TEST
 
@@ -180,7 +169,7 @@ START_TEST(valid_occur_I){
   isValid = validateInputs(invalidMsg, "MMMIIII", "III");
   
   ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: M,C,X,I", invalidMsg);
+  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: C,X,I", invalidMsg);
 }
 END_TEST
 
@@ -191,7 +180,7 @@ START_TEST(valid_occur_three_both){
   isValid = validateInputs(invalidMsg, "MMMIII", "IIII");
   
   ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: M,C,X,I", invalidMsg);
+  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: C,X,I", invalidMsg);
 }
 END_TEST
 
@@ -224,7 +213,6 @@ Suite* validateInputSuite(void){
 
   TCase *threeOccur;
   threeOccur = tcase_create("Characters occur three times");
-  tcase_add_test(threeOccur, valid_occur_M);
   tcase_add_test(threeOccur, valid_occur_C);
   tcase_add_test(threeOccur, valid_occur_X);
   tcase_add_test(threeOccur, valid_occur_I);
