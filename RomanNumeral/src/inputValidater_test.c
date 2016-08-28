@@ -55,6 +55,16 @@ START_TEST(valid_chars_input_X){
 }
 END_TEST
 
+START_TEST(valid_chars_input_V){
+  char invalidMsg[100];
+  int isValid;
+  
+  isValid = validateInputs(invalidMsg, "V", "III");
+  
+  ck_assert_int_eq(1, isValid);
+}
+END_TEST
+
 Suite* validateInputSuite(void){
   Suite *su;
   TCase *tcase;
@@ -66,6 +76,7 @@ Suite* validateInputSuite(void){
   tcase_add_test(tcase, valid_chars_input_C);
   tcase_add_test(tcase, valid_chars_input_L);
   tcase_add_test(tcase, valid_chars_input_X);
+  tcase_add_test(tcase, valid_chars_input_V);
 
   suite_add_tcase(su, tcase);
 

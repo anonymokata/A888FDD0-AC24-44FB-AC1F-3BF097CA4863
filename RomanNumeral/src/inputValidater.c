@@ -5,7 +5,7 @@
 #include "../include/inputValidater.h"
 
 int hasValidCharacters(char *numeral){
-  char validChars[5] = {'M', 'D', 'C', 'L', 'X'};
+  char validChars[6] = {'M', 'D', 'C', 'L', 'X', 'V'};
   
   int outer = 0;
   for(outer; outer < strlen(numeral); outer++){
