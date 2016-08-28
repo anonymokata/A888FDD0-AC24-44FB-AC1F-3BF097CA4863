@@ -29,7 +29,7 @@ START_TEST(valid_chars_input_C){
   char invalidMsg[100];
   int isValid;
   
-  isValid = validateInputs(invalidMsg, "MD", "III");
+  isValid = validateInputs(invalidMsg, "MDC", "III");
   
   ck_assert_int_eq(1, isValid);
 }
@@ -43,7 +43,7 @@ Suite* validateInputSuite(void){
   tcase = tcase_create("Valid Characters");
   tcase_add_test(tcase, valid_chars_input_M);
   tcase_add_test(tcase, valid_chars_input_D);
-  // tcase_add_test(tcase, valid_chars_input_C);
+  tcase_add_test(tcase, valid_chars_input_C);
 
   suite_add_tcase(su, tcase);
 
