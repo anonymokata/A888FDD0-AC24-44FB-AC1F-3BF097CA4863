@@ -96,6 +96,50 @@ START_TEST(valid_chars_input_secondnumeral){
 }
 END_TEST
 
+START_TEST(valid_occur_D){
+  char invalidMsg[100];
+  int isValid;
+  
+  isValid = validateInputs(invalidMsg, "DD", "III");
+  
+  ck_assert_int_eq(0, isValid);
+  ck_assert_str_eq("Roman Numerals can only contain one occurrence of the characters: D,L,V", invalidMsg);
+}
+END_TEST
+
+START_TEST(valid_occur_L){
+  char invalidMsg[100];
+  int isValid;
+  
+  isValid = validateInputs(invalidMsg, "LL", "III");
+  
+  ck_assert_int_eq(0, isValid);
+  ck_assert_str_eq("Roman Numerals can only contain one occurrence of the characters: D,L,V", invalidMsg);
+}
+END_TEST
+
+START_TEST(valid_occur_V){
+  char invalidMsg[100];
+  int isValid;
+  
+  isValid = validateInputs(invalidMsg, "VV", "III");
+  
+  ck_assert_int_eq(0, isValid);
+  ck_assert_str_eq("Roman Numerals can only contain one occurrence of the characters: D,L,V", invalidMsg);
+}
+END_TEST
+
+START_TEST(valid_occur_both_numerals){
+  char invalidMsg[100];
+  int isValid;
+  
+  isValid = validateInputs(invalidMsg, "III", "DD");
+  
+  ck_assert_int_eq(0, isValid);
+  ck_assert_str_eq("Roman Numerals can only contain one occurrence of the characters: D,L,V", invalidMsg);
+}
+END_TEST
+
 Suite* validateInputSuite(void){
   Suite *su;
   TCase *tcase;
@@ -113,6 +157,18 @@ Suite* validateInputSuite(void){
   tcase_add_test(tcase, valid_chars_input_secondnumeral);
 
   suite_add_tcase(su, tcase);
+
+  TCase *oneOccur;
+  oneOccur = tcase_create("Characters occur one time");
+  tcase_add_test(oneOccur, valid_occur_D);
+  tcase_add_test(oneOccur, valid_occur_L);
+  tcase_add_test(oneOccur, valid_occur_V);
+  tcase_add_test(oneOccur, valid_occur_both_numerals);
+
+  suite_add_tcase(su, oneOccur);
+
+  TCase *threeOccur;
+  threeOccur = tcase_create("Characters occur three times");
 
   return su;
 }
