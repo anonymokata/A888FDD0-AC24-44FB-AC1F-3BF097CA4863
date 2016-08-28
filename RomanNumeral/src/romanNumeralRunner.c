@@ -16,6 +16,6 @@ int main(int argc, char *argv[]){
   }
 
   printf("\nUsage: romanNumeral [operation] [romanNumeral] [romanNumeral]\n");
-  printf("Operations: add, sub, \n\n");
+  printf("Operations: add, sub \n\n");
   return 0;
 }
