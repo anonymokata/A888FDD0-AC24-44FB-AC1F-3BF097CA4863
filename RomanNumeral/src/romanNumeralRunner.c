@@ -9,7 +9,7 @@ int main(int argc, char *argv[]){
   }
 
   if(argc == 4) {
-    char result[25];
+    char result[50];
     calculate(result, argv[1], argv[2], argv[3]);
     printf("Result: %s\n", result);
     return 0;

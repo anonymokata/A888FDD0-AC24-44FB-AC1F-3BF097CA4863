@@ -2,6 +2,10 @@
 #include <check.h>
 
 #include "../include/romanNumeralRunner_test.h"
+#include "../include/inputValidater_test.h"
+#include "../include/intToRomanNumeralConverter_test.h"
+#include "../include/romanNumeralToIntConverter_test.h"
+#include "../include/romanNumeralCalculator_test.h"
 
 int runAllTests(void){
   int numberFailed;
@@ -19,6 +23,10 @@ int runAllTests(void){
   Suite *calc;
   calc = romanNumeralCalculatorSuite();
   srunner_add_suite(sr, calc);
+
+  Suite *inputValid;
+  inputValid = validateInputSuite();
+  srunner_add_suite(sr, inputValid);
 
   srunner_run_all(sr, CK_NORMAL);
   numberFailed = srunner_ntests_failed(sr);
