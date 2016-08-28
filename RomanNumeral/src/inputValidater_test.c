@@ -19,7 +19,7 @@ START_TEST(valid_chars_input_D){
   char invalidMsg[100];
   int isValid;
   
-  isValid = validateInputs(invalidMsg, "MD", "III");
+  isValid = validateInputs(invalidMsg, "D", "III");
   
   ck_assert_int_eq(1, isValid);
 }
@@ -29,7 +29,27 @@ START_TEST(valid_chars_input_C){
   char invalidMsg[100];
   int isValid;
   
-  isValid = validateInputs(invalidMsg, "MDC", "III");
+  isValid = validateInputs(invalidMsg, "C", "III");
+  
+  ck_assert_int_eq(1, isValid);
+}
+END_TEST
+
+START_TEST(valid_chars_input_L){
+  char invalidMsg[100];
+  int isValid;
+  
+  isValid = validateInputs(invalidMsg, "L", "III");
+  
+  ck_assert_int_eq(1, isValid);
+}
+END_TEST
+
+START_TEST(valid_chars_input_X){
+  char invalidMsg[100];
+  int isValid;
+  
+  isValid = validateInputs(invalidMsg, "X", "III");
   
   ck_assert_int_eq(1, isValid);
 }
@@ -44,6 +64,8 @@ Suite* validateInputSuite(void){
   tcase_add_test(tcase, valid_chars_input_M);
   tcase_add_test(tcase, valid_chars_input_D);
   tcase_add_test(tcase, valid_chars_input_C);
+  tcase_add_test(tcase, valid_chars_input_L);
+  tcase_add_test(tcase, valid_chars_input_X);
 
   suite_add_tcase(su, tcase);
 
