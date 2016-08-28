@@ -140,6 +140,17 @@ START_TEST(valid_occur_both_numerals){
 }
 END_TEST
 
+START_TEST(valid_occur_M){
+  char invalidMsg[100];
+  int isValid;
+  
+  isValid = validateInputs(invalidMsg, "MMMM", "III");
+  
+  ck_assert_int_eq(0, isValid);
+  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: M,C,X,I", invalidMsg);
+}
+END_TEST
+
 Suite* validateInputSuite(void){
   Suite *su;
   TCase *tcase;
@@ -169,6 +180,9 @@ Suite* validateInputSuite(void){
 
   TCase *threeOccur;
   threeOccur = tcase_create("Characters occur three times");
+  //tcase_add_test(threeOccur, valid_occur_M);
+  
+  suite_add_tcase(su, threeOccur);
 
   return su;
 }

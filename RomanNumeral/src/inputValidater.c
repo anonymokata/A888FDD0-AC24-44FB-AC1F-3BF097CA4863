@@ -27,15 +27,12 @@ int hasValidCharacters(char *numeral){
   return 1;
 }
 
-int hasSingleOccurence(char *numeral){
-  char charsToCnt[3] = {'D', 'L', 'V'};
-  int cntOfChars[3] = {0, 0, 0};
+int hasDesiredOccurrence(char *numeral, char *charsToCnt, int *cntOfChars, int size, int desiredOccurrence){
 
   int outer = 0;
   for(outer; outer < strlen(numeral); outer++){
-    
     int inner = 0;
-    for(inner; inner < sizeof(charsToCnt); inner++){
+    for(inner; inner < size; inner++){
       if(charsToCnt[inner] == numeral[outer]){
 	cntOfChars[inner] = cntOfChars[inner] + 1;
       }
@@ -43,13 +40,20 @@ int hasSingleOccurence(char *numeral){
   }
 
   int index = 0;
-  for(index; index < sizeof(cntOfChars)/sizeof(int); index++){
-    if(cntOfChars[index] > 1){
+  for(index; index < size; index++){
+    if(cntOfChars[index] > desiredOccurrence){
       return 0;
     }
   }
 
   return 1;
+}
+
+int hasSingleOccurrence(char *numeral){
+  char charsToCnt[] = {'D', 'L', 'V'};
+  int cntOfChars[] = {0, 0, 0};
+
+  return hasDesiredOccurrence(numeral, charsToCnt, cntOfChars, 3, 1);
 }
 
 int validateInputs(char *invalidMsg, char *firstNumeral, char *secondNumeral){
@@ -58,7 +62,7 @@ int validateInputs(char *invalidMsg, char *firstNumeral, char *secondNumeral){
     return 0;
   }
 
-  if(!hasSingleOccurence(firstNumeral) || !hasSingleOccurence(secondNumeral)){
+  if(!hasSingleOccurrence(firstNumeral) || !hasSingleOccurrence(secondNumeral)){
     strcpy(invalidMsg, "Roman Numerals can only contain one occurrence of the characters: D,L,V");
     return 0;
   }
