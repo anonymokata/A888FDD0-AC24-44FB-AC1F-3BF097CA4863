@@ -85,6 +85,17 @@ START_TEST(valid_chars_input_firstnumeral){
 }
 END_TEST
 
+START_TEST(valid_chars_input_secondnumeral){
+  char invalidMsg[100];
+  int isValid;
+  
+  isValid = validateInputs(invalidMsg, "III", "ABC");
+  
+  ck_assert_int_eq(0, isValid);
+  ck_assert_str_eq("Roman Numerals can only be comprised of the following characters: M,D,C,L,X,V,I", invalidMsg);
+}
+END_TEST
+
 Suite* validateInputSuite(void){
   Suite *su;
   TCase *tcase;
@@ -99,6 +110,7 @@ Suite* validateInputSuite(void){
   tcase_add_test(tcase, valid_chars_input_V);
   tcase_add_test(tcase, valid_chars_input_I);
   tcase_add_test(tcase, valid_chars_input_firstnumeral);
+  tcase_add_test(tcase, valid_chars_input_secondnumeral);
 
   suite_add_tcase(su, tcase);
 

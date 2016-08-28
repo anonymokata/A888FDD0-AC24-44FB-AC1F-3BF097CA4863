@@ -28,7 +28,7 @@ int hasValidCharacters(char *numeral){
 }
 
 int validateInputs(char *invalidMsg, char *firstNumeral, char *secondNumeral){
-  if(!hasValidCharacters(firstNumeral)){
+  if(!hasValidCharacters(firstNumeral) || !hasValidCharacters(secondNumeral)){
     strcpy(invalidMsg, "Roman Numerals can only be comprised of the following characters: M,D,C,L,X,V,I");
     return 0;
   }
