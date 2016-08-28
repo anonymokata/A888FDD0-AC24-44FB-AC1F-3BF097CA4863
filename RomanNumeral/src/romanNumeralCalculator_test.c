@@ -52,6 +52,14 @@ START_TEST(calculateRomanNumerals_greater_than_3999){
 }
 END_TEST
 
+START_TEST(calculateRomanNumerals_uses_validation){
+  char romanNumerals[100];
+
+  calculate(romanNumerals, "add", "ABC", "I");
+  ck_assert_str_eq("Roman Numerals can only be comprised of the following characters: M,D,C,L,X,V,I", romanNumerals);
+}
+END_TEST
+
 Suite* romanNumeralCalculatorSuite(void){
   Suite *su;
   TCase *tcase;
@@ -65,6 +73,7 @@ Suite* romanNumeralCalculatorSuite(void){
   tcase_add_test(tcase, calculateRomanNumerals_V_div_II);
   tcase_add_test(tcase, calculateRomanNumerals_less_than_1);
   tcase_add_test(tcase, calculateRomanNumerals_greater_than_3999);
+  tcase_add_test(tcase, calculateRomanNumerals_uses_validation);
 
   suite_add_tcase(su, tcase);
 
