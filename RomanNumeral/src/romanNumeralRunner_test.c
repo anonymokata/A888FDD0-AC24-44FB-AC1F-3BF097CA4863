@@ -2,6 +2,9 @@
 #include <check.h>
 
 #include "../include/romanNumeralRunner_test.h"
+#include "../include/intToRomanNumeralConverter_test.h"
+#include "../include/romanNumeralToIntConverter_test.h"
+#include "../include/romanNumeralCalculator_test.h"
 
 int runAllTests(void){
   int numberFailed;
