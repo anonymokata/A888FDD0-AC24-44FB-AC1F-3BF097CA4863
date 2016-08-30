@@ -12,4 +12,6 @@
     2. The maximum result will be 3999
     3. The minimum result will be 1
     4. Can't contain more than one of each of the characters D, L, V
-    5. Can't contain more than three of each of the characters C, X, I <-- I think this is supposed to be more than three in a row, but was implemented as stated in the rules of the kata.
+    5. Can't contain more than three of each of the characters C, X, I *
+
+* I think this is supposed to be more than three in a row, but was implemented as stated in the rules of the kata.
