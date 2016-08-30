@@ -1,7 +1,7 @@
 # Falcon Punch
 ## Usage:
-   romanNumeral tests
-   romanNumeral [operation] [romanNumeral] [romanNumeral]
+   * romanNumeral tests
+   * romanNumeral [operation] [romanNumeral] [romanNumeral]
 
 ### Operations:
     add: will cause both romanNumerals to be added together
