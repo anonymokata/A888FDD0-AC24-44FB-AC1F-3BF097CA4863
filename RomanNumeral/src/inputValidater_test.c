@@ -111,7 +111,7 @@ START_TEST(valid_occur_L){
   char invalidMsg[100];
   int isValid;
   
-  isValid = validateInputs(invalidMsg, "LL", "III");
+  isValid = validateInputs(invalidMsg, "XILL", "III");
   
   ck_assert_int_eq(0, isValid);
   ck_assert_str_eq("Roman Numerals can only contain one occurrence of the characters: D,L,V", invalidMsg);
@@ -122,7 +122,7 @@ START_TEST(valid_occur_V){
   char invalidMsg[100];
   int isValid;
   
-  isValid = validateInputs(invalidMsg, "VV", "III");
+  isValid = validateInputs(invalidMsg, "XXVXXV", "III");
   
   ck_assert_int_eq(0, isValid);
   ck_assert_str_eq("Roman Numerals can only contain one occurrence of the characters: D,L,V", invalidMsg);
@@ -133,7 +133,7 @@ START_TEST(valid_occur_both_numerals){
   char invalidMsg[100];
   int isValid;
   
-  isValid = validateInputs(invalidMsg, "III", "DD");
+  isValid = validateInputs(invalidMsg, "III", "DIIID");
   
   ck_assert_int_eq(0, isValid);
   ck_assert_str_eq("Roman Numerals can only contain one occurrence of the characters: D,L,V", invalidMsg);

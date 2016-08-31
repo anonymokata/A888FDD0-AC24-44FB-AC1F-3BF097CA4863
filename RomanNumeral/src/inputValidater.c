@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 #include "../include/inputValidater.h"
+#include "../include/regexMatcher.h"
 
 int hasValidCharacters(char *numeral){
   char validChars[7] = {'M', 'D', 'C', 'L', 'X', 'V', 'I'};
@@ -50,26 +51,25 @@ int hasMoreThanDesiredOccurrence(char *numeral, char *charsToCnt, int *cntOfChar
 }
 
 int hasMoreThanSingleOccurrence(char *numeral){
-  char charsToCnt[] = {'D', 'L', 'V'};
-  int cntOfChars[] = {0, 0, 0};
-
-  return hasMoreThanDesiredOccurrence(numeral, charsToCnt, cntOfChars, 3, 1);
+  char *regex = "D.*D|L.*L|V.*V";
+  return doesStringMatchRegex(regex, numeral);
 }
 
 int hasMoreThanThreeOccurrences(char *numeral){
   char charsToCnt[] = {'C', 'X', 'I'};
   int cntOfChars[] = {0, 0, 0};
 
-  return hasMoreThanDesiredOccurrence(numeral, charsToCnt, cntOfChars, 4, 3);
+  return hasMoreThanDesiredOccurrence(numeral, charsToCnt, cntOfChars, 3, 3);
 }
 
 int validateInputs(char *invalidMsg, char *firstNumeral, char *secondNumeral){
+
   if(!hasValidCharacters(firstNumeral) || !hasValidCharacters(secondNumeral)){
     strcpy(invalidMsg, "Roman Numerals can only be comprised of the following characters: M,D,C,L,X,V,I");
     return 0;
   }
 
-  if(!hasMoreThanSingleOccurrence(firstNumeral) || !hasMoreThanSingleOccurrence(secondNumeral)){
+  if(hasMoreThanSingleOccurrence(firstNumeral) || hasMoreThanSingleOccurrence(secondNumeral)){
     strcpy(invalidMsg, "Roman Numerals can only contain one occurrence of the characters: D,L,V");
     return 0;
   }
