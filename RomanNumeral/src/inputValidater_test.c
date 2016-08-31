@@ -140,7 +140,7 @@ START_TEST(valid_occur_both_numerals){
 }
 END_TEST
 
-START_TEST(valid_occur_C){
+START_TEST(invalid_occur_C){
   char invalidMsg[100];
   int isValid;
   
@@ -151,7 +151,7 @@ START_TEST(valid_occur_C){
 }
 END_TEST
 
-START_TEST(valid_occur_X){
+START_TEST(invalid_occur_X){
   char invalidMsg[100];
   int isValid;
   
@@ -162,7 +162,17 @@ START_TEST(valid_occur_X){
 }
 END_TEST
 
-START_TEST(valid_occur_I){
+START_TEST(valid_occur_X){
+  char invalidMsg[100];
+  int isValid;
+  
+  isValid = validateInputs(invalidMsg, "MMXXXIX", "III");
+  
+  ck_assert_int_eq(1, isValid);
+}
+END_TEST
+
+START_TEST(invalid_occur_I){
   char invalidMsg[100];
   int isValid;
   
@@ -173,7 +183,7 @@ START_TEST(valid_occur_I){
 }
 END_TEST
 
-START_TEST(valid_occur_three_both){
+START_TEST(invalid_occur_three_both){
   char invalidMsg[100];
   int isValid;
   
@@ -213,10 +223,11 @@ Suite* validateInputSuite(void){
 
   TCase *threeOccur;
   threeOccur = tcase_create("Characters occur three times");
-  tcase_add_test(threeOccur, valid_occur_C);
+  tcase_add_test(threeOccur, invalid_occur_C);
+  tcase_add_test(threeOccur, invalid_occur_X);
   tcase_add_test(threeOccur, valid_occur_X);
-  tcase_add_test(threeOccur, valid_occur_I);
-  tcase_add_test(threeOccur, valid_occur_three_both);
+  tcase_add_test(threeOccur, invalid_occur_I);
+  tcase_add_test(threeOccur, invalid_occur_three_both);
   
   suite_add_tcase(su, threeOccur);
 
