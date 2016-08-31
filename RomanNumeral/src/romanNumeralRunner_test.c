@@ -6,6 +6,7 @@
 #include "../include/intToRomanNumeralConverter_test.h"
 #include "../include/romanNumeralToIntConverter_test.h"
 #include "../include/romanNumeralCalculator_test.h"
+#include "../include/regexMatcher_test.h"
 
 int runAllTests(void){
   int numberFailed;
@@ -27,6 +28,10 @@ int runAllTests(void){
   Suite *inputValid;
   inputValid = validateInputSuite();
   srunner_add_suite(sr, inputValid);
+
+  Suite *regex;
+  regex = regexMatchingSuite();
+  srunner_add_suite(sr, regex);
 
   srunner_run_all(sr, CK_NORMAL);
   numberFailed = srunner_ntests_failed(sr);
