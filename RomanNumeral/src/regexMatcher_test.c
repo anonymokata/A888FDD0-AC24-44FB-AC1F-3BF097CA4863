@@ -21,6 +21,15 @@ START_TEST(regex_match_simple_or) {
 }
 END_TEST
 
+START_TEST(regex_match_multiple_or) {
+  int matches;
+  char *regex = "M|C|V";
+  char *word = "XXXVXXX";
+  matches = doesStringMatchRegex(regex, word);
+  ck_assert_int_eq(1, matches);
+}
+END_TEST
+
 Suite* regexMatchingSuite(void) {
   Suite *su;
   TCase *tcase;
@@ -30,6 +39,7 @@ Suite* regexMatchingSuite(void) {
   tcase = tcase_create("Convert Single Character");
   tcase_add_test(tcase, regex_match_simple);
   tcase_add_test(tcase, regex_match_simple_or);
+  tcase_add_test(tcase, regex_match_multiple_or);
 
   suite_add_tcase(su, tcase);
   
