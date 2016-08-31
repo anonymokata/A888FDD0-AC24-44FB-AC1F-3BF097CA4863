@@ -5,27 +5,10 @@
 #include "../include/inputValidater.h"
 #include "../include/regexMatcher.h"
 
-int hasValidCharacters(char *numeral){
-  char validChars[7] = {'M', 'D', 'C', 'L', 'X', 'V', 'I'};
-  
-  int outer = 0;
-  for(outer; outer < strlen(numeral); outer++){
-    int isValid = 0;
-    int inner = 0;
+int hasInvalidCharacters(char *numeral){
+  char *regex = "[^MDCLXVI]";
 
-    for(inner; inner < strlen(validChars); inner++){
-      if(validChars[inner] == numeral[outer]){
-	isValid = 1;
-	break;
-      }
-    }
-
-    if(!isValid){
-      return 0;
-    }
-  }
-
-  return 1;
+  return doesStringMatchRegex(regex, numeral); 
 }
 
 int hasMoreThanSingleOccurrence(char *numeral){
@@ -42,7 +25,7 @@ int hasMoreThanThreeOccurrences(char *numeral){
 
 int validateInputs(char *invalidMsg, char *firstNumeral, char *secondNumeral){
 
-  if(!hasValidCharacters(firstNumeral) || !hasValidCharacters(secondNumeral)){
+  if(hasInvalidCharacters(firstNumeral) || hasInvalidCharacters(secondNumeral)){
     strcpy(invalidMsg, "Roman Numerals can only be comprised of the following characters: M,D,C,L,X,V,I");
     return 0;
   }
