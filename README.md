@@ -2,7 +2,7 @@
   If you don't know the reference, please ask someone who plays video games.  
 
 ## Usage:
-   * romanNumerals tests
+   * romanNumeralTests
    * romanNumerals [operation] [romanNumeral] [romanNumeral]
 
 ### Operations:

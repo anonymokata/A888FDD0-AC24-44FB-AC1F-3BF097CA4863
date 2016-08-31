@@ -10,12 +10,12 @@ FILTER = %romanNumeralRunner.c
 
 all: default
 
-default: RomanNumerals tests
+default: RomanNumerals test
 
 RomanNumerals: $(SRC_FILES)
 	gcc $(SRC_FILES) -o romanNumerals -I $(INCL) $(LIB_PATH) $(LIB)
 
-tests:	$(SRC_FILES) $(SRC_TEST_FILES)
+test:	$(SRC_FILES) $(SRC_TEST_FILES)
 	gcc $(filter-out $(FILTER), $(SRC_FILES)) $(SRC_TEST_FILES) -o romanNumeralTests -I $(INCL) -I $(INCL)tests/ $(LIB_PATH) $(LIB)
 	./romanNumeralTests
 
