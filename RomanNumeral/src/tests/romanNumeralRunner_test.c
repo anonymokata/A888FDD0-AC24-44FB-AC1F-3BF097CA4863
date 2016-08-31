@@ -1,14 +1,14 @@
 #include <stdlib.h>
 #include <check.h>
 
-#include "../include/romanNumeralRunner_test.h"
-#include "../include/inputValidater_test.h"
-#include "../include/intToRomanNumeralConverter_test.h"
-#include "../include/romanNumeralToIntConverter_test.h"
-#include "../include/romanNumeralCalculator_test.h"
-#include "../include/regexMatcher_test.h"
+#include "../include/tests/romanNumeralRunner_test.h"
+#include "../include/tests/inputValidator_test.h"
+#include "../include/tests/intToRomanNumeralConverter_test.h"
+#include "../include/tests/romanNumeralToIntConverter_test.h"
+#include "../include/tests/romanNumeralCalculator_test.h"
+#include "../include/tests/regexMatcher_test.h"
 
-int runAllTests(void){
+int main(void){
   int numberFailed;
 
   Suite *convertToNumeral;

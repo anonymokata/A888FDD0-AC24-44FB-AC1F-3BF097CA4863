@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <check.h>
 
-#include "../include/regexMatcher_test.h"
+#include "../include/tests/regexMatcher_test.h"
 
 START_TEST(regex_match_simple) {
   int matches;

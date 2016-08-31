@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <check.h>
 
-#include "../include/intToRomanNumeralConverter_test.h"
+#include "../include/tests/intToRomanNumeralConverter_test.h"
 
 START_TEST(convertToChar_1000_to_M){
   char romanNumerals[25];

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../include/inputValidater.h"
+#include "../include/inputValidator.h"
 #include "../include/regexMatcher.h"
 
 int hasInvalidCharacters(char *numeral){

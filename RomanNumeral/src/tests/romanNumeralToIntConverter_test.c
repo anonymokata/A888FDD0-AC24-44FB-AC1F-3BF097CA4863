@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <check.h>
 
-#include "../include/romanNumeralToIntConverter_test.h"
+#include "../include/tests/romanNumeralToIntConverter_test.h"
 
 START_TEST(convertToInt_I_to_1){
   char one[1] = "I";

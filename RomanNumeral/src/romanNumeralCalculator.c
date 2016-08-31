@@ -4,7 +4,7 @@
 
 #include "../include/romanNumeralCalculator.h"
 #include "../include/romanNumeralToIntConverter.h"
-#include "../include/inputValidater.h"
+#include "../include/inputValidator.h"
 
 void calculate(char *result, char *op, char *first, char *sec){
   if(!validateInputs(result, first, sec)){

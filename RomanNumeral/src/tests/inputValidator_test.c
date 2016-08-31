@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <check.h>
 
-#include "../include/inputValidater_test.h"
-#include "../include/inputValidater.h"
+#include "../include/tests/inputValidator_test.h"
+#include "../include/inputValidator.h"
 
 START_TEST(valid_chars_input_M){
   char invalidMsg[100];
