@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
 #include "../include/inputValidater.h"
 #include "../include/regexMatcher.h"
