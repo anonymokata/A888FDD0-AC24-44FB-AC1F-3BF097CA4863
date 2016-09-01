@@ -6,13 +6,10 @@
 #include "../include/romanNumeralToIntConverter.h"
 #include "../include/inputValidator.h"
 
-int calculate(char *result, char *op, char *firstRomanNumeral, char *secondRomanNumeral){
+#define MAX_NUMERAL_VALUE 3999
+#define MIN_NUMERAL_VALUE 1
 
-  int validationStatus = validateInputs(firstRomanNumeral, secondRomanNumeral);
-  if(validationStatus){
-    return validationStatus;
-  }
-
+int calculateResultInDecimalFormat(char *op, char *firstRomanNumeral, char *secondRomanNumeral){
   int convertedFirstNumber, convertedSecondNumber, resultingNumber;
 
   convertedFirstNumber = convertRomanNumeralsToInt(firstRomanNumeral);
@@ -24,11 +21,23 @@ int calculate(char *result, char *op, char *firstRomanNumeral, char *secondRoman
     resultingNumber = convertedFirstNumber + convertedSecondNumber;
   }
 
-  if(resultingNumber < 1){
+  return resultingNumber;
+}
+
+int calculate(char *result, char *op, char *firstRomanNumeral, char *secondRomanNumeral){
+
+  int validationStatus = validateInputs(firstRomanNumeral, secondRomanNumeral);
+  if(validationStatus){
+    return validationStatus;
+  }
+
+  int resultingNumber = calculateResultInDecimalFormat(op, firstRomanNumeral, secondRomanNumeral);
+
+  if(resultingNumber < MIN_NUMERAL_VALUE){
     return BENEATH_MIN_RESULT;
   } 
 
-  if(resultingNumber > 3999){
+  if(resultingNumber > MAX_NUMERAL_VALUE){
     return EXCEEDED_MAX_RESULT;
   }
 

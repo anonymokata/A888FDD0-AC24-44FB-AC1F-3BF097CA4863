@@ -6,6 +6,8 @@
 
 
 void printExceptionMessageBasedOnStatus(int status){
+  printf("Exception: ");
+
   if(status == BENEATH_MIN_RESULT){
     printf("Invalid number less than 1\n");
   } else if(status == EXCEEDED_MAX_RESULT){
@@ -22,18 +24,19 @@ void printExceptionMessageBasedOnStatus(int status){
 int main(int argc, char *argv[]){
   int status = -1;
 
-  char result[100];
+  char result[25] = "";
   if(argc == 4) {
     status = calculate(result, argv[1], argv[2], argv[3]);
   }
   
   if(status == 0){
     printf("Result: %s\n", result);
-  } else {
+  } else if(status > 0){
     printExceptionMessageBasedOnStatus(status);
+  } else{
+      printf("\nUsage: romanNumeral [operation] [romanNumeral] [romanNumeral]\n");
+      printf("Operations: add, sub \n\n");
   }
 
-  printf("\nUsage: romanNumeral [operation] [romanNumeral] [romanNumeral]\n");
-  printf("Operations: add, sub \n\n");
   return (status == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }

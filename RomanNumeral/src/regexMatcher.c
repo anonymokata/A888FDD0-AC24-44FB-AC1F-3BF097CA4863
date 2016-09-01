@@ -13,8 +13,8 @@ int doesStringMatchRegex(char *regExp, char *word){
   regfree(&regex);
   
   if(result == 0){
-    return 1;
+    return EXIT_SUCCESS;
   }
 
-  return 0;
+  return EXIT_FAILURE;
 }

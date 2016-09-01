@@ -7,19 +7,19 @@
 int hasInvalidCharacters(char *numeral){
   char *regex = "[^MDCLXVI]";
 
-  return doesStringMatchRegex(regex, numeral); 
+  return !doesStringMatchRegex(regex, numeral); 
 }
 
 int hasMoreThanSingleOccurrence(char *numeral){
   char *regex = "D.*D|L.*L|V.*V";
 
-  return doesStringMatchRegex(regex, numeral);
+  return !doesStringMatchRegex(regex, numeral);
 }
 
 int hasMoreThanThreeOccurrences(char *numeral){
   char *regex = "MMMM|CCCC|XXXX|IIII";
 
-  return doesStringMatchRegex(regex, numeral);
+  return !doesStringMatchRegex(regex, numeral);
 }
 
 int validateInputs(char *firstNumeral, char *secondNumeral){
