@@ -8,7 +8,7 @@
 
 int calculate(char *result, char *op, char *firstRomanNumeral, char *secondRomanNumeral){
 
-  int status = validateInputs(result, firstRomanNumeral, secondRomanNumeral);
+  int status = validateInputs(firstRomanNumeral, secondRomanNumeral);
   if(status){
     return status;
   }

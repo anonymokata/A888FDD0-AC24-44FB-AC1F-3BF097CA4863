@@ -5,180 +5,126 @@
 #include "../include/inputValidator.h"
 
 START_TEST(valid_chars_input_M){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "M", "III");
+  int isValid = validateInputs("M", "III");
   
   ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
 START_TEST(valid_chars_input_D){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "D", "III");
+  int isValid = validateInputs("D", "III");
   
   ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
 START_TEST(valid_chars_input_C){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "C", "III");
+  int isValid = validateInputs("C", "III");
   
   ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
 START_TEST(valid_chars_input_L){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "L", "III");
+  int isValid = validateInputs("L", "III");
   
   ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
 START_TEST(valid_chars_input_X){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "X", "III");
+  int isValid = validateInputs("X", "III");
   
   ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
 START_TEST(valid_chars_input_V){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "V", "III");
+  int isValid = validateInputs("V", "III");
   
   ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
 START_TEST(valid_chars_input_I){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "I", "III");
+  int isValid = validateInputs("I", "III");
   
   ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
 START_TEST(valid_chars_input_firstnumeral){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "ABC", "III");
+  int isValid = validateInputs("ABC", "III");
   
   ck_assert_int_eq(INVALID_CHARS, isValid);
 }
 END_TEST
 
 START_TEST(valid_chars_input_secondnumeral){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "III", "ABC");
+  int isValid = validateInputs("III", "ABC");
   
   ck_assert_int_eq(INVALID_CHARS, isValid);
 }
 END_TEST
 
 START_TEST(valid_occur_D){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "DD", "III");
+  int isValid = validateInputs("DD", "III");
   
   ck_assert_int_eq(SINGLE_CHARS_EXCEEDED, isValid);
 }
 END_TEST
 
 START_TEST(valid_occur_L){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "XILL", "III");
+  int isValid = validateInputs("XILL", "III");
   
   ck_assert_int_eq(SINGLE_CHARS_EXCEEDED, isValid);
 }
 END_TEST
 
 START_TEST(valid_occur_V){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "XXVXXV", "III");
+  int isValid = validateInputs("XXVXXV", "III");
   
   ck_assert_int_eq(SINGLE_CHARS_EXCEEDED, isValid);
 }
 END_TEST
 
 START_TEST(valid_occur_both_numerals){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "III", "DIIID");
+  int isValid = validateInputs("III", "DIIID");
   
   ck_assert_int_eq(SINGLE_CHARS_EXCEEDED, isValid);
 }
 END_TEST
 
 START_TEST(invalid_occur_C){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "MMMCCCC", "III");
+  int isValid = validateInputs("MMMCCCC", "III");
   
   ck_assert_int_eq(EXCEEDED_MAX_SEQ_CHARS, isValid);
 }
 END_TEST
 
 START_TEST(invalid_occur_X){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "MMMXXXX", "III");
+  int isValid = validateInputs("MMMXXXX", "III");
   
   ck_assert_int_eq(EXCEEDED_MAX_SEQ_CHARS, isValid);
 }
 END_TEST
 
 START_TEST(valid_occur_X){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "MMXXXIX", "III");
+  int isValid = validateInputs("MMXXXIX", "III");
   
   ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
 START_TEST(invalid_occur_I){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "MMMIIII", "III");
+  int isValid = validateInputs("MMMIIII", "III");
   
   ck_assert_int_eq(EXCEEDED_MAX_SEQ_CHARS, isValid);
 }
 END_TEST
 
 START_TEST(invalid_occur_three_both){
-  char invalidMsg[100];
-  int isValid;
-  
-  isValid = validateInputs(invalidMsg, "MMMIII", "IIII");
+  int isValid = validateInputs("MMMIII", "IIII");
   
   ck_assert_int_eq(EXCEEDED_MAX_SEQ_CHARS, isValid);
 }

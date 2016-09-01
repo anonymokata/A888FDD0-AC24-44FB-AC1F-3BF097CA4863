@@ -22,7 +22,7 @@ int hasMoreThanThreeOccurrences(char *numeral){
   return doesStringMatchRegex(regex, numeral);
 }
 
-int validateInputs(char *invalidMsg, char *firstNumeral, char *secondNumeral){
+int validateInputs(char *firstNumeral, char *secondNumeral){
 
   if(hasInvalidCharacters(firstNumeral) || hasInvalidCharacters(secondNumeral)){
     return INVALID_CHARS;
