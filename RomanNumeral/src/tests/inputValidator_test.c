@@ -3,6 +3,7 @@
 
 #include "../include/tests/inputValidator_test.h"
 #include "../include/inputValidator.h"
+#include "../include/romanNumeralCalculator.h"
 
 START_TEST(valid_chars_input_M){
   int isValid = validateInputs("M", "III");

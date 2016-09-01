@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../include/inputValidator.h"
 #include "../include/romanNumeralCalculator.h"
 
 

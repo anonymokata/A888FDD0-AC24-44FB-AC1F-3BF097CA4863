@@ -3,6 +3,7 @@
 
 #include "../include/inputValidator.h"
 #include "../include/regexMatcher.h"
+#include "../include/romanNumeralCalculator.h"
 
 int hasInvalidCharacters(const char *numeral){
   char *regex = "[^MDCLXVI]";

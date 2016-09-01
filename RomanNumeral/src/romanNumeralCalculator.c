@@ -4,7 +4,6 @@
 
 #include "../include/romanNumeralCalculator.h"
 #include "../include/romanNumeralToIntConverter.h"
-#include "../include/inputValidator.h"
 
 #define MAX_NUMERAL_VALUE 3999
 #define MIN_NUMERAL_VALUE 1
