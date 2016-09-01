@@ -8,9 +8,9 @@
 
 int calculate(char *result, char *op, char *firstRomanNumeral, char *secondRomanNumeral){
 
-  int status = validateInputs(firstRomanNumeral, secondRomanNumeral);
-  if(status){
-    return status;
+  int validationStatus = validateInputs(firstRomanNumeral, secondRomanNumeral);
+  if(validationStatus){
+    return validationStatus;
   }
 
   int convertedFirstNumber, convertedSecondNumber, resultingNumber;
