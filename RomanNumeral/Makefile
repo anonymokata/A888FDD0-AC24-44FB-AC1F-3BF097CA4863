@@ -17,7 +17,6 @@ RomanNumerals: $(SRC_FILES)
 
 test:	$(SRC_FILES) $(SRC_TEST_FILES)
 	gcc $(filter-out $(FILTER), $(SRC_FILES)) $(SRC_TEST_FILES) -o romanNumeralTests -I $(INCL) -I $(INCL)tests/ $(LIB_PATH) $(LIB)
-	./romanNumeralTests
 
 clean: 
 	rm -f romanNumerals
