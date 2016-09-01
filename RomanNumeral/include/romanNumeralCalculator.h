@@ -4,6 +4,6 @@
 #define BENEATH_MIN_RESULT 101
 #define EXCEEDED_MAX_RESULT 102
 
-int calculate(char *result, char *op, char *first, char *sec);
+int calculate(char *result, const char *op, const char *first, const char *sec);
 
 #endif

@@ -4,25 +4,25 @@
 #include "../include/inputValidator.h"
 #include "../include/regexMatcher.h"
 
-int hasInvalidCharacters(char *numeral){
+int hasInvalidCharacters(const char *numeral){
   char *regex = "[^MDCLXVI]";
 
   return !doesStringMatchRegex(regex, numeral); 
 }
 
-int hasMoreThanSingleOccurrence(char *numeral){
+int hasMoreThanSingleOccurrence(const char *numeral){
   char *regex = "D.*D|L.*L|V.*V";
 
   return !doesStringMatchRegex(regex, numeral);
 }
 
-int hasMoreThanThreeOccurrences(char *numeral){
+int hasMoreThanThreeOccurrences(const char *numeral){
   char *regex = "MMMM|CCCC|XXXX|IIII";
 
   return !doesStringMatchRegex(regex, numeral);
 }
 
-int validateInputs(char *firstNumeral, char *secondNumeral){
+int validateInputs(const char *firstNumeral, const char *secondNumeral){
 
   if(hasInvalidCharacters(firstNumeral) || hasInvalidCharacters(secondNumeral)){
     return INVALID_CHARS;

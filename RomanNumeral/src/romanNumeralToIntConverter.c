@@ -23,7 +23,7 @@ int determineValueOfRomanNumeral(char numeral){
   return 1;
 }
 
-int convertRomanNumeralsToInt(char romanNumerals[]){
+int convertRomanNumeralsToInt(const char romanNumerals[]){
   int value = 0;
   int numeralLen = strlen(romanNumerals);
 

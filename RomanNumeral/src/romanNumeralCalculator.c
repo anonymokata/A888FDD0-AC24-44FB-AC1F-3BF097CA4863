@@ -9,7 +9,7 @@
 #define MAX_NUMERAL_VALUE 3999
 #define MIN_NUMERAL_VALUE 1
 
-int calculateResultInDecimalFormat(char *op, char *firstRomanNumeral, char *secondRomanNumeral){
+int calculateResultInDecimalFormat(const char *op, const char *firstRomanNumeral, const char *secondRomanNumeral){
   int convertedFirstNumber, convertedSecondNumber, resultingNumber;
 
   convertedFirstNumber = convertRomanNumeralsToInt(firstRomanNumeral);
@@ -24,7 +24,7 @@ int calculateResultInDecimalFormat(char *op, char *firstRomanNumeral, char *seco
   return resultingNumber;
 }
 
-int calculate(char *result, char *op, char *firstRomanNumeral, char *secondRomanNumeral){
+int calculate(char *result, const char *op, const char *firstRomanNumeral, const char *secondRomanNumeral){
 
   int validationStatus = validateInputs(firstRomanNumeral, secondRomanNumeral);
   if(validationStatus){

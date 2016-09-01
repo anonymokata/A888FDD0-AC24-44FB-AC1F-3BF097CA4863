@@ -3,7 +3,7 @@
 
 #include "../include/regexMatcher.h"
 
-int doesStringMatchRegex(char *regExp, char *word){
+int doesStringMatchRegex(const char *regExp, const char *word){
   regex_t regex;
   
   regcomp (&regex, regExp, REG_NOSUB|REG_EXTENDED);
