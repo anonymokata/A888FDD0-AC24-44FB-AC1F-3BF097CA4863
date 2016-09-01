@@ -6,36 +6,32 @@
 #include "../include/romanNumeralToIntConverter.h"
 #include "../include/inputValidator.h"
 
-void calculate(char *result, char *op, char *first, char *sec){
-  if(!validateInputs(result, first, sec)){
-    return;
+int calculate(char *result, char *op, char *firstRomanNumeral, char *secondRomanNumeral){
+
+  int status = validateInputs(result, firstRomanNumeral, secondRomanNumeral);
+  if(status){
+    return status;
   }
 
-  int firstNum, secNum;
+  int convertedFirstNumber, convertedSecondNumber, resultingNumber;
 
-  firstNum = convertRomanNumeralsToInt(first);
-  secNum = convertRomanNumeralsToInt(sec);
+  convertedFirstNumber = convertRomanNumeralsToInt(firstRomanNumeral);
+  convertedSecondNumber = convertRomanNumeralsToInt(secondRomanNumeral);
 
-  int resultNum;
   if(strcmp("sub", op) == 0){
-    resultNum = firstNum - secNum;
-  } else if(strcmp("mul", op) == 0){
-    resultNum = firstNum * secNum;
-  } else if(strcmp("div", op) == 0){
-    resultNum = firstNum / secNum;
+    resultingNumber = convertedFirstNumber - convertedSecondNumber;
   } else {
-    resultNum = firstNum + secNum;
+    resultingNumber = convertedFirstNumber + convertedSecondNumber;
   }
 
-  if(resultNum < 1){
-    strcpy(result, "Invalid number less than 1");
-    return;
+  if(resultingNumber < 1){
+    return BENEATH_MIN_RESULT;
   } 
 
-  if(resultNum > 3999){
-    strcpy(result, "Invalid number greater than 3999");
-    return;
+  if(resultingNumber > 3999){
+    return EXCEEDED_MAX_RESULT;
   }
 
-  convertIntToRomanNumerals(result, resultNum);
+  convertIntToRomanNumerals(result, resultingNumber);
+  return EXIT_SUCCESS;
 }

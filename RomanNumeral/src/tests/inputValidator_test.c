@@ -10,7 +10,7 @@ START_TEST(valid_chars_input_M){
   
   isValid = validateInputs(invalidMsg, "M", "III");
   
-  ck_assert_int_eq(1, isValid);
+  ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
@@ -20,7 +20,7 @@ START_TEST(valid_chars_input_D){
   
   isValid = validateInputs(invalidMsg, "D", "III");
   
-  ck_assert_int_eq(1, isValid);
+  ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
@@ -30,7 +30,7 @@ START_TEST(valid_chars_input_C){
   
   isValid = validateInputs(invalidMsg, "C", "III");
   
-  ck_assert_int_eq(1, isValid);
+  ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
@@ -40,7 +40,7 @@ START_TEST(valid_chars_input_L){
   
   isValid = validateInputs(invalidMsg, "L", "III");
   
-  ck_assert_int_eq(1, isValid);
+  ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
@@ -50,7 +50,7 @@ START_TEST(valid_chars_input_X){
   
   isValid = validateInputs(invalidMsg, "X", "III");
   
-  ck_assert_int_eq(1, isValid);
+  ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
@@ -60,7 +60,7 @@ START_TEST(valid_chars_input_V){
   
   isValid = validateInputs(invalidMsg, "V", "III");
   
-  ck_assert_int_eq(1, isValid);
+  ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
@@ -70,7 +70,7 @@ START_TEST(valid_chars_input_I){
   
   isValid = validateInputs(invalidMsg, "I", "III");
   
-  ck_assert_int_eq(1, isValid);
+  ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
@@ -80,8 +80,7 @@ START_TEST(valid_chars_input_firstnumeral){
   
   isValid = validateInputs(invalidMsg, "ABC", "III");
   
-  ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only be comprised of the following characters: M,D,C,L,X,V,I", invalidMsg);
+  ck_assert_int_eq(INVALID_CHARS, isValid);
 }
 END_TEST
 
@@ -91,8 +90,7 @@ START_TEST(valid_chars_input_secondnumeral){
   
   isValid = validateInputs(invalidMsg, "III", "ABC");
   
-  ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only be comprised of the following characters: M,D,C,L,X,V,I", invalidMsg);
+  ck_assert_int_eq(INVALID_CHARS, isValid);
 }
 END_TEST
 
@@ -102,8 +100,7 @@ START_TEST(valid_occur_D){
   
   isValid = validateInputs(invalidMsg, "DD", "III");
   
-  ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain one occurrence of the characters: D,L,V", invalidMsg);
+  ck_assert_int_eq(SINGLE_CHARS_EXCEEDED, isValid);
 }
 END_TEST
 
@@ -113,8 +110,7 @@ START_TEST(valid_occur_L){
   
   isValid = validateInputs(invalidMsg, "XILL", "III");
   
-  ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain one occurrence of the characters: D,L,V", invalidMsg);
+  ck_assert_int_eq(SINGLE_CHARS_EXCEEDED, isValid);
 }
 END_TEST
 
@@ -124,8 +120,7 @@ START_TEST(valid_occur_V){
   
   isValid = validateInputs(invalidMsg, "XXVXXV", "III");
   
-  ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain one occurrence of the characters: D,L,V", invalidMsg);
+  ck_assert_int_eq(SINGLE_CHARS_EXCEEDED, isValid);
 }
 END_TEST
 
@@ -135,8 +130,7 @@ START_TEST(valid_occur_both_numerals){
   
   isValid = validateInputs(invalidMsg, "III", "DIIID");
   
-  ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain one occurrence of the characters: D,L,V", invalidMsg);
+  ck_assert_int_eq(SINGLE_CHARS_EXCEEDED, isValid);
 }
 END_TEST
 
@@ -146,8 +140,7 @@ START_TEST(invalid_occur_C){
   
   isValid = validateInputs(invalidMsg, "MMMCCCC", "III");
   
-  ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: C,X,I", invalidMsg);
+  ck_assert_int_eq(EXCEEDED_MAX_SEQ_CHARS, isValid);
 }
 END_TEST
 
@@ -157,8 +150,7 @@ START_TEST(invalid_occur_X){
   
   isValid = validateInputs(invalidMsg, "MMMXXXX", "III");
   
-  ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: C,X,I", invalidMsg);
+  ck_assert_int_eq(EXCEEDED_MAX_SEQ_CHARS, isValid);
 }
 END_TEST
 
@@ -168,7 +160,7 @@ START_TEST(valid_occur_X){
   
   isValid = validateInputs(invalidMsg, "MMXXXIX", "III");
   
-  ck_assert_int_eq(1, isValid);
+  ck_assert_int_eq(EXIT_SUCCESS, isValid);
 }
 END_TEST
 
@@ -178,8 +170,7 @@ START_TEST(invalid_occur_I){
   
   isValid = validateInputs(invalidMsg, "MMMIIII", "III");
   
-  ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: C,X,I", invalidMsg);
+  ck_assert_int_eq(EXCEEDED_MAX_SEQ_CHARS, isValid);
 }
 END_TEST
 
@@ -189,8 +180,7 @@ START_TEST(invalid_occur_three_both){
   
   isValid = validateInputs(invalidMsg, "MMMIII", "IIII");
   
-  ck_assert_int_eq(0, isValid);
-  ck_assert_str_eq("Roman Numerals can only contain three occurrences of the characters: C,X,I", invalidMsg);
+  ck_assert_int_eq(EXCEEDED_MAX_SEQ_CHARS, isValid);
 }
 END_TEST
 

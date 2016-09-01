@@ -25,19 +25,16 @@ int hasMoreThanThreeOccurrences(char *numeral){
 int validateInputs(char *invalidMsg, char *firstNumeral, char *secondNumeral){
 
   if(hasInvalidCharacters(firstNumeral) || hasInvalidCharacters(secondNumeral)){
-    strcpy(invalidMsg, "Roman Numerals can only be comprised of the following characters: M,D,C,L,X,V,I");
-    return 0;
+    return INVALID_CHARS;
   }
 
   if(hasMoreThanSingleOccurrence(firstNumeral) || hasMoreThanSingleOccurrence(secondNumeral)){
-    strcpy(invalidMsg, "Roman Numerals can only contain one occurrence of the characters: D,L,V");
-    return 0;
+    return SINGLE_CHARS_EXCEEDED;
   }
 
   if(hasMoreThanThreeOccurrences(firstNumeral) || hasMoreThanThreeOccurrences(secondNumeral)){
-    strcpy(invalidMsg, "Roman Numerals can only contain three occurrences of the characters: C,X,I");
-    return 0;
+    return EXCEEDED_MAX_SEQ_CHARS;
   }
 
-  return 1;
+  return EXIT_SUCCESS;
 }
