@@ -174,6 +174,13 @@ START_TEST(invalid_operation_null){
 }
 END_TEST
 
+START_TEST(invalid_first_input_null){
+  int isValid = validateInputs(NULL, "I");
+
+  ck_assert_int_eq(NULL_VALUE_INPUTS, isValid);
+}
+END_TEST
+
 
 Suite* validateInputSuite(void){
   Suite *su;
@@ -220,6 +227,7 @@ Suite* validateInputSuite(void){
   tcase_add_test(nullValue, valid_operation_sub);
   tcase_add_test(nullValue, invalid_operation);
   tcase_add_test(nullValue, invalid_operation_null);
+  tcase_add_test(nullValue, invalid_first_input_null);
 
   suite_add_tcase(su, nullValue);
 

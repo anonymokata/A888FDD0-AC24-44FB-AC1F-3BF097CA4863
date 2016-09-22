@@ -24,6 +24,9 @@ int hasMoreThanThreeOccurrences(const char *numeral){
 }
 
 int validateInputs(const char *firstNumeral, const char *secondNumeral){
+  if(firstNumeral == NULL){
+    return NULL_VALUE_INPUTS;
+  }
 
   if(hasInvalidCharacters(firstNumeral) || hasInvalidCharacters(secondNumeral)){
     return INVALID_CHARS;
