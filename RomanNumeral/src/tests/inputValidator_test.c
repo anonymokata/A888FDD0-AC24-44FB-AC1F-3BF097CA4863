@@ -54,14 +54,14 @@ START_TEST(valid_chars_input_I){
 }
 END_TEST
 
-START_TEST(valid_chars_input_firstnumeral){
+START_TEST(validate_chars_input_firstnumeral){
   int isValid = validateInputs("ABC", "III");
   
   ck_assert_int_eq(INVALID_CHARS, isValid);
 }
 END_TEST
 
-START_TEST(valid_chars_input_secondnumeral){
+START_TEST(validate_chars_input_secondnumeral){
   int isValid = validateInputs("III", "ABC");
   
   ck_assert_int_eq(INVALID_CHARS, isValid);
@@ -89,7 +89,7 @@ START_TEST(invalid_occur_V){
 }
 END_TEST
 
-START_TEST(valid_occur_both_numerals){
+START_TEST(validate_single_occur_both_numerals){
   int isValid = validateInputs("III", "DIIID");
   
   ck_assert_int_eq(SINGLE_CHARS_EXCEEDED, isValid);
@@ -124,7 +124,7 @@ START_TEST(invalid_occur_I){
 }
 END_TEST
 
-START_TEST(invalid_occur_three_both){
+START_TEST(validate_occur_three_both_numerals){
   int isValid = validateInputs("MMMIII", "IIII");
   
   ck_assert_int_eq(EXCEEDED_MAX_SEQ_CHARS, isValid);
@@ -202,8 +202,8 @@ Suite* validateInputSuite(void){
   tcase_add_test(tcase, valid_chars_input_X);
   tcase_add_test(tcase, valid_chars_input_V);
   tcase_add_test(tcase, valid_chars_input_I);
-  tcase_add_test(tcase, valid_chars_input_firstnumeral);
-  tcase_add_test(tcase, valid_chars_input_secondnumeral);
+  tcase_add_test(tcase, validate_chars_input_firstnumeral);
+  tcase_add_test(tcase, validate_chars_input_secondnumeral);
 
   suite_add_tcase(su, tcase);
 
@@ -212,7 +212,7 @@ Suite* validateInputSuite(void){
   tcase_add_test(oneOccur, invalid_occur_D);
   tcase_add_test(oneOccur, invalid_occur_L);
   tcase_add_test(oneOccur, invalid_occur_V);
-  tcase_add_test(oneOccur, valid_occur_both_numerals);
+  tcase_add_test(oneOccur, validate_single_occur_both_numerals);
 
   suite_add_tcase(su, oneOccur);
 
@@ -222,7 +222,7 @@ Suite* validateInputSuite(void){
   tcase_add_test(threeOccur, invalid_occur_X);
   tcase_add_test(threeOccur, valid_occur_X);
   tcase_add_test(threeOccur, invalid_occur_I);
-  tcase_add_test(threeOccur, invalid_occur_three_both);
+  tcase_add_test(threeOccur, validate_occur_three_both_numerals);
   
   suite_add_tcase(su, threeOccur);
 
