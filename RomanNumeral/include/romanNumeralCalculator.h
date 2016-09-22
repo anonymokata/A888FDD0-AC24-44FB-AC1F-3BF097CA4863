@@ -9,6 +9,7 @@
 #define EXCEEDED_MAX_SEQ_CHARS 202
 #define NULL_VALUE_INPUTS 203
 #define NULL_VALUE_RESULT_PARAM 204
+#define INVALID_OPERATION 205
 
 int calculate(char *result, const char *op, const char *first, const char *sec);
 

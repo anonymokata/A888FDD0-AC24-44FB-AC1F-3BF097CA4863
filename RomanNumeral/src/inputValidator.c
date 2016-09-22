@@ -50,9 +50,9 @@ int validateResultParam(const char *result){
 
 int validateOperationInput(const char *operation){
   
-  if(strcmp(operation, "add") == 0 || strcmp(operation, "sub") == 0){
-    return EXIT_SUCCESS;
+  if(strcmp(operation, "add") != 0 && strcmp(operation, "sub") != 0){
+    return INVALID_OPERATION;
   }
 
-  return 1;
+  return EXIT_SUCCESS;
 }

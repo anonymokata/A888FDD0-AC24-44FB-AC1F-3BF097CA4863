@@ -54,20 +54,6 @@ START_TEST(valid_chars_input_I){
 }
 END_TEST
 
-START_TEST(valid_operation_add){
-  int isValid = validateOperationInput("add");
-
-  ck_assert_int_eq(EXIT_SUCCESS, isValid);
-}
-END_TEST
-
-START_TEST(valid_operation_sub){
-  int isValid = validateOperationInput("sub");
-
-  ck_assert_int_eq(EXIT_SUCCESS, isValid);
-}
-END_TEST
-
 START_TEST(valid_chars_input_firstnumeral){
   int isValid = validateInputs("ABC", "III");
   
@@ -82,21 +68,21 @@ START_TEST(valid_chars_input_secondnumeral){
 }
 END_TEST
 
-START_TEST(valid_occur_D){
+START_TEST(invalid_occur_D){
   int isValid = validateInputs("DD", "III");
   
   ck_assert_int_eq(SINGLE_CHARS_EXCEEDED, isValid);
 }
 END_TEST
 
-START_TEST(valid_occur_L){
+START_TEST(invalid_occur_L){
   int isValid = validateInputs("XILL", "III");
   
   ck_assert_int_eq(SINGLE_CHARS_EXCEEDED, isValid);
 }
 END_TEST
 
-START_TEST(valid_occur_V){
+START_TEST(invalid_occur_V){
   int isValid = validateInputs("XXVXXV", "III");
   
   ck_assert_int_eq(SINGLE_CHARS_EXCEEDED, isValid);
@@ -160,6 +146,27 @@ START_TEST(invalid_result_parameter_null){
 }
 END_TEST
 
+START_TEST(valid_operation_add){
+  int isValid = validateOperationInput("add");
+
+  ck_assert_int_eq(EXIT_SUCCESS, isValid);
+}
+END_TEST
+
+START_TEST(valid_operation_sub){
+  int isValid = validateOperationInput("sub");
+
+  ck_assert_int_eq(EXIT_SUCCESS, isValid);
+}
+END_TEST
+
+START_TEST(invalid_operation){
+  int isValid = validateOperationInput("sam");
+
+  ck_assert_int_eq(INVALID_OPERATION, isValid);
+}
+END_TEST
+
 Suite* validateInputSuite(void){
   Suite *su;
   TCase *tcase;
@@ -175,16 +182,14 @@ Suite* validateInputSuite(void){
   tcase_add_test(tcase, valid_chars_input_I);
   tcase_add_test(tcase, valid_chars_input_firstnumeral);
   tcase_add_test(tcase, valid_chars_input_secondnumeral);
-  tcase_add_test(tcase, valid_operation_add);
-  tcase_add_test(tcase, valid_operation_sub);
 
   suite_add_tcase(su, tcase);
 
   TCase *oneOccur;
   oneOccur = tcase_create("Characters occur one time");
-  tcase_add_test(oneOccur, valid_occur_D);
-  tcase_add_test(oneOccur, valid_occur_L);
-  tcase_add_test(oneOccur, valid_occur_V);
+  tcase_add_test(oneOccur, invalid_occur_D);
+  tcase_add_test(oneOccur, invalid_occur_L);
+  tcase_add_test(oneOccur, invalid_occur_V);
   tcase_add_test(oneOccur, valid_occur_both_numerals);
 
   suite_add_tcase(su, oneOccur);
@@ -203,6 +208,9 @@ Suite* validateInputSuite(void){
   nullValue = tcase_create("Check For Null Values");
   tcase_add_test(nullValue, valid_result_parameter);
   tcase_add_test(nullValue, invalid_result_parameter_null);
+  tcase_add_test(nullValue, valid_operation_add);
+  tcase_add_test(nullValue, valid_operation_sub);
+  tcase_add_test(nullValue, invalid_operation);
 
   suite_add_tcase(su, nullValue);
 
