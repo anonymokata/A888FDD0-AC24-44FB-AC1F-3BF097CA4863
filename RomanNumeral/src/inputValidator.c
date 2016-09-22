@@ -49,6 +49,9 @@ int validateResultParam(const char *result){
 }
 
 int validateOperationInput(const char *operation){
+  if(operation == NULL){
+    return INVALID_OPERATION;
+  }
   
   if(strcmp(operation, "add") != 0 && strcmp(operation, "sub") != 0){
     return INVALID_OPERATION;
