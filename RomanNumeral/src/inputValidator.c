@@ -50,7 +50,7 @@ int validateResultParam(const char *result){
 
 int validateOperationInput(const char *operation){
   
-  if(strcmp(operation, "add") == 0){
+  if(strcmp(operation, "add") == 0 || strcmp(operation, "sub") == 0){
     return EXIT_SUCCESS;
   }
 
