@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <check.h>
+#include <stdbool.h>
 
 #include "../include/tests/regexMatcher_test.h"
 
@@ -8,7 +9,7 @@ START_TEST(regex_match_simple) {
   char *regex = "M";
   char *word = "MM";
   matches = doesStringMatchRegex(regex, word);
-  ck_assert_int_eq(0, matches);
+  ck_assert_int_eq(true, matches);
 }
 END_TEST
 
@@ -17,7 +18,7 @@ START_TEST(regex_match_simple_or) {
   char *regex = "M|C";
   char *word = "C";
   matches = doesStringMatchRegex(regex, word);
-  ck_assert_int_eq(0, matches);
+  ck_assert_int_eq(true, matches);
 }
 END_TEST
 
@@ -26,7 +27,7 @@ START_TEST(regex_match_multiple_or) {
   char *regex = "M|C|V";
   char *word = "XXXVXXX";
   matches = doesStringMatchRegex(regex, word);
-  ck_assert_int_eq(0, matches);
+  ck_assert_int_eq(true, matches);
 }
 END_TEST
 

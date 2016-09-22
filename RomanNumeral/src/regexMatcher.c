@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <regex.h>
+#include <stdbool.h>
 
 #include "../include/regexMatcher.h"
 
@@ -13,8 +14,8 @@ int doesStringMatchRegex(const char *regExp, const char *word){
   regfree(&regex);
   
   if(result == 0){
-    return EXIT_SUCCESS;
+    return true;
   }
 
-  return EXIT_FAILURE;
+  return false;
 }

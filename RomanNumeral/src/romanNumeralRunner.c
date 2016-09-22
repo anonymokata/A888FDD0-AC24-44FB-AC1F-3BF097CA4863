@@ -33,7 +33,7 @@ int main(int argc, char *argv[]){
   } else if(status > 0){
     printExceptionMessageBasedOnStatus(status);
   } else{
-      printf("\nUsage: romanNumeral [operation] [romanNumeral] [romanNumeral]\n");
+    printf("\nUsage: %s  [operation] [romanNumeral] [romanNumeral]\n", argv[0]);
       printf("Operations: add, sub \n\n");
   }
 
