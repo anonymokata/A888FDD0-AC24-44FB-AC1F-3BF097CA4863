@@ -39,3 +39,11 @@ int validateInputs(const char *firstNumeral, const char *secondNumeral){
 
   return EXIT_SUCCESS;
 }
+
+int validateResultParam(const char *result){
+  return 0;
+}
+
+int validateOperationInput(const char *operation){
+  return 0;
+}

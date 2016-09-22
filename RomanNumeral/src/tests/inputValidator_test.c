@@ -131,6 +131,14 @@ START_TEST(invalid_occur_three_both){
 }
 END_TEST
 
+START_TEST(valid_result_parameter){
+  char result[30] = "";
+  int isValid = validateResultParam(result);
+  
+  ck_assert_int_eq(0, isValid);
+}
+END_TEST
+
 Suite* validateInputSuite(void){
   Suite *su;
   TCase *tcase;
@@ -167,6 +175,12 @@ Suite* validateInputSuite(void){
   tcase_add_test(threeOccur, invalid_occur_three_both);
   
   suite_add_tcase(su, threeOccur);
+
+  TCase *nullValue;
+  nullValue = tcase_create("Check For Null Values");
+  tcase_add_test(nullValue, valid_result_parameter);
+
+  suite_add_tcase(su, nullValue);
 
   return su;
 }
