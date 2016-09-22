@@ -8,11 +8,8 @@
 #define MAX_NUMERAL_VALUE 3999
 #define MIN_NUMERAL_VALUE 1
 
-int calculateResultInDecimalFormat(const char *op, const char *firstRomanNumeral, const char *secondRomanNumeral){
-  int convertedFirstNumber, convertedSecondNumber, resultingNumber;
-
-  convertedFirstNumber = convertRomanNumeralsToInt(firstRomanNumeral);
-  convertedSecondNumber = convertRomanNumeralsToInt(secondRomanNumeral);
+int calculateResult(const char *op, int convertedFirstNumber, int convertedSecondNumber){
+  int resultingNumber;
 
   if(strcmp("sub", op) == 0){
     resultingNumber = convertedFirstNumber - convertedSecondNumber;
@@ -30,7 +27,12 @@ int calculate(char *result, const char *op, const char *firstRomanNumeral, const
     return validationStatus;
   }
 
-  int resultingNumber = calculateResultInDecimalFormat(op, firstRomanNumeral, secondRomanNumeral);
+  int convertedFirstNumber, convertedSecondNumber;
+
+  convertedFirstNumber = convertRomanNumeralsToInt(firstRomanNumeral);
+  convertedSecondNumber = convertRomanNumeralsToInt(secondRomanNumeral);
+
+  int resultingNumber = calculateResult(op, convertedFirstNumber, convertedSecondNumber);
 
   if(resultingNumber < MIN_NUMERAL_VALUE){
     return BENEATH_MIN_RESULT;
