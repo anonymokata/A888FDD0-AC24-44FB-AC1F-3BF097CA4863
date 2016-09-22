@@ -1,11 +1,16 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 #include "../include/inputValidator.h"
 #include "../include/regexMatcher.h"
 #include "../include/romanNumeralCalculator.h"
 
 int hasInvalidCharacters(const char *numeral){
+  if(strlen(numeral) == 0){
+    return true;
+  }
+
   char *regex = "[^MDCLXVI]";
 
   return doesStringMatchRegex(regex, numeral); 
