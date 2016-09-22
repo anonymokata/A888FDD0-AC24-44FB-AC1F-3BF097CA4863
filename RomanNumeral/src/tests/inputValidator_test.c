@@ -54,6 +54,13 @@ START_TEST(valid_chars_input_I){
 }
 END_TEST
 
+START_TEST(valid_operation_add){
+  int isValid = validateOperationInput("add");
+
+  ck_assert_int_eq(EXIT_SUCCESS, isValid);
+}
+END_TEST
+
 START_TEST(valid_chars_input_firstnumeral){
   int isValid = validateInputs("ABC", "III");
   
@@ -161,6 +168,7 @@ Suite* validateInputSuite(void){
   tcase_add_test(tcase, valid_chars_input_I);
   tcase_add_test(tcase, valid_chars_input_firstnumeral);
   tcase_add_test(tcase, valid_chars_input_secondnumeral);
+  tcase_add_test(tcase, valid_operation_add);
 
   suite_add_tcase(su, tcase);
 

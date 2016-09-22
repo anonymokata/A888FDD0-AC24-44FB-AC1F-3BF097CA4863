@@ -45,9 +45,14 @@ int validateResultParam(const char *result){
     return NULL_VALUE_RESULT_PARAM;
   }
 
-  return 0;
+  return EXIT_SUCCESS;
 }
 
 int validateOperationInput(const char *operation){
+  
+  if(strcmp(operation, "add") == 0){
+    return EXIT_SUCCESS;
+  }
+
   return 1;
 }
