@@ -41,9 +41,13 @@ int validateInputs(const char *firstNumeral, const char *secondNumeral){
 }
 
 int validateResultParam(const char *result){
+  if(result == NULL){
+    return NULL_VALUE_RESULT_PARAM;
+  }
+
   return 0;
 }
 
 int validateOperationInput(const char *operation){
-  return 0;
+  return 1;
 }

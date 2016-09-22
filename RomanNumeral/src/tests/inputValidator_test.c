@@ -139,6 +139,13 @@ START_TEST(valid_result_parameter){
 }
 END_TEST
 
+START_TEST(invalid_result_parameter_null){
+  int isValid = validateResultParam(NULL);
+  
+  ck_assert_int_eq(NULL_VALUE_RESULT_PARAM, isValid);
+}
+END_TEST
+
 Suite* validateInputSuite(void){
   Suite *su;
   TCase *tcase;
@@ -179,6 +186,7 @@ Suite* validateInputSuite(void){
   TCase *nullValue;
   nullValue = tcase_create("Check For Null Values");
   tcase_add_test(nullValue, valid_result_parameter);
+  tcase_add_test(nullValue, invalid_result_parameter_null);
 
   suite_add_tcase(su, nullValue);
 
