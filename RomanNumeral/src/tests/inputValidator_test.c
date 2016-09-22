@@ -61,6 +61,13 @@ START_TEST(invalid_empty_input){
 }
 END_TEST
 
+START_TEST(invalid_empty_second_input){
+  int isValid = validateInputs("I", "");
+
+  ck_assert_int_eq(INVALID_CHARS, isValid);
+}
+END_TEST
+
 START_TEST(validate_chars_input_firstnumeral){
   int isValid = validateInputs("ABC", "III");
   
@@ -210,6 +217,7 @@ Suite* validateInputSuite(void){
   tcase_add_test(tcase, valid_chars_input_V);
   tcase_add_test(tcase, valid_chars_input_I);
   tcase_add_test(tcase, invalid_empty_input);
+  tcase_add_test(tcase, invalid_empty_second_input);
   tcase_add_test(tcase, validate_chars_input_firstnumeral);
   tcase_add_test(tcase, validate_chars_input_secondnumeral);
 
